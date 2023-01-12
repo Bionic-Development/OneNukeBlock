@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C C",
+    "D D",
+    " I "
+  ],
+  "key": {
+    "D": {
+      "item": "immortalmobs:immortal_diamond"
+    },
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "immortalmobs:immortal_chain_trap"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    "II ",
+    "SI "
+  ],
+  "key": {
+    "I": {
+      "item": "immortalmobs:immortal_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "immortalmobs:immortal_sword"
+  }
+}

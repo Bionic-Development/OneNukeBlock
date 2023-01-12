@@ -1,0 +1,16 @@
+{
+  "overrides": [
+    {
+      "predicate": {
+        "running": 0.0
+      },
+      "model": "immortalmobs:item/super_shear_saw_off"
+    },
+    {
+      "predicate": {
+        "running": 1.0
+      },
+      "model": "immortalmobs:item/super_shear_saw_on"
+    }
+  ]
+}

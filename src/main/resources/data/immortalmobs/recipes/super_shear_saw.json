@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C",
+    "S "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:shears"
+    },
+    "C": {
+      "item": "minecraft:stonecutter"
+    }
+  },
+  "result": {
+    "item": "immortalmobs:super_shear_saw"
+  }
+}

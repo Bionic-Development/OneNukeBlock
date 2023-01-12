@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "immortalmobs",
+  "version": "${version}",
+  "name": "ImmortalMobs Mod",
+  "description": "ImmortalMobs",
+  "authors": [
+    "Takacick"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/immortalmobs/icon.png",
+  "environment": "*",
+  "accessWidener" : "immortalmobs.accesswidener",
+  "entrypoints": {
+    "main": [
+      "de.takacick.immortalmobs.ImmortalMobs"
+    ],
+    "client": [
+      "de.takacick.immortalmobs.ImmortalMobsClient"
+    ]
+  },
+  "mixins": [
+    "immortalmobs.mixins.json"
+  ],
+  "depends": {
+    "bionicutils": ">=1.0.5",
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

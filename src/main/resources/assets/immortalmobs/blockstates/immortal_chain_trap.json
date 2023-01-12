@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "immortalmobs:block/immortal_chain_trap",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "immortalmobs:block/immortal_chain_trap"
+    },
+    "facing=south": {
+      "model": "immortalmobs:block/immortal_chain_trap",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "immortalmobs:block/immortal_chain_trap",
+      "y": 270
+    }
+  }
+}

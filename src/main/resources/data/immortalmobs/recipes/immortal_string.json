@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W"
+  ],
+  "key": {
+    "W": {
+      "item": "immortalmobs:immortal_wool"
+    }
+  },
+  "result": {
+    "item": "immortalmobs:immortal_string",
+    "count": 6
+  }
+}

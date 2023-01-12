@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "immortalmobs:item/bow_pulling_1_arrow"
+    }
+}
