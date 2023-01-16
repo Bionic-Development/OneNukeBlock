@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "immortalmobs",
+  "id": "imagineanything",
   "version": "${version}",
-  "name": "ImmortalMobs Mod",
-  "description": "ImmortalMobs",
+  "name": "ImagineAnything Mod",
+  "description": "ImagineAnything",
   "authors": [
     "Takacick"
   ],
@@ -12,19 +12,19 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/immortalmobs/icon.png",
+  "icon": "assets/imagineanything/icon.png",
   "environment": "*",
-  "accessWidener" : "immortalmobs.accesswidener",
+  "accessWidener" : "imagineanything.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.immortalmobs.ImmortalMobs"
+      "de.takacick.imagineanything.ImagineAnything"
     ],
     "client": [
-      "de.takacick.immortalmobs.ImmortalMobsClient"
+      "de.takacick.imagineanything.ImagineAnythingClient"
     ]
   },
   "mixins": [
-    "immortalmobs.mixins.json"
+    "imagineanything.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.0.5",

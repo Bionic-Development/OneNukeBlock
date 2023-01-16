@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "imagineanything:item/imagined_alfred_the_pickaxe"
+  }
+}

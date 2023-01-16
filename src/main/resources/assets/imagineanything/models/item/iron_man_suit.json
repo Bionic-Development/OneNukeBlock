@@ -1,0 +1,106 @@
+{
+	"parent": "builtin/entity",
+	"elements": [
+		{
+			"name": "Body",
+			"from": [-4, 12, -2],
+			"to": [4, 24, 2],
+			"faces": {
+				"north": {"uv": [20, 20, 28, 32], "texture": "#missing"},
+				"east": {"uv": [16, 20, 20, 32], "texture": "#missing"},
+				"south": {"uv": [32, 20, 40, 32], "texture": "#missing"},
+				"west": {"uv": [28, 20, 32, 32], "texture": "#missing"},
+				"up": {"uv": [28, 20, 20, 16], "texture": "#missing"},
+				"down": {"uv": [36, 16, 28, 20], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "Body Layer",
+			"from": [-4.25, 11.75, -2.25],
+			"to": [4.25, 24.25, 2.25],
+			"faces": {
+				"north": {"uv": [20, 36, 28, 48], "texture": "#missing"},
+				"east": {"uv": [16, 36, 20, 48], "texture": "#missing"},
+				"south": {"uv": [32, 36, 40, 48], "texture": "#missing"},
+				"west": {"uv": [28, 36, 32, 48], "texture": "#missing"},
+				"up": {"uv": [28, 36, 20, 32], "texture": "#missing"},
+				"down": {"uv": [36, 32, 28, 36], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "Head",
+			"from": [-4, 24, -4],
+			"to": [4, 32, 4],
+			"faces": {
+				"north": {"uv": [8, 8, 16, 16], "texture": "#missing"},
+				"east": {"uv": [0, 8, 8, 16], "texture": "#missing"},
+				"south": {"uv": [24, 8, 32, 16], "texture": "#missing"},
+				"west": {"uv": [16, 8, 24, 16], "texture": "#missing"},
+				"up": {"uv": [16, 8, 8, 0], "texture": "#missing"},
+				"down": {"uv": [24, 0, 16, 8], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "Hat Layer",
+			"from": [-4.5, 23, -4.5],
+			"to": [4.5, 32, 4.5],
+			"faces": {
+				"north": {"uv": [40, 8, 48, 16], "texture": "#missing"},
+				"east": {"uv": [32, 8, 40, 16], "texture": "#missing"},
+				"south": {"uv": [56, 8, 64, 16], "texture": "#missing"},
+				"west": {"uv": [48, 8, 56, 16], "texture": "#missing"},
+				"up": {"uv": [48, 8, 40, 0], "texture": "#missing"},
+				"down": {"uv": [56, 0, 48, 8], "texture": "#missing"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 0, -180],
+			"translation": [-8, 7.25, 7.25]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 0, -180],
+			"translation": [8, 7.25, 7.25]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 0, -180],
+			"translation": [-4, 6, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 0, -180],
+			"translation": [12, 6, 0]
+		},
+		"ground": {
+			"rotation": [0, 0, -180],
+			"translation": [-8, 17, 8]
+		},
+		"gui": {
+			"rotation": [180, -12, 0],
+			"translation": [3, -0.25, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"translation": [8.5, 10, 8.5]
+		},
+		"fixed": {
+			"translation": [8, -4.5, 6.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "Body",
+			"origin": [0, 24, 0],
+			"color": 0,
+			"children": [0, 1]
+		},
+		{
+			"name": "Head",
+			"origin": [0, 24, 0],
+			"rotation": [6, -5, 0],
+			"color": 0,
+			"children": [2, 3]
+		}
+	]
+}

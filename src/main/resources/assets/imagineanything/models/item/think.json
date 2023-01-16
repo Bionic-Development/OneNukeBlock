@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "imagineanything:item/think"
+  },
+  "overrides": [
+  {
+    "predicate": {
+      "thinking": 1
+    },
+    "model": "imagineanything:item/think_third"
+  },
+  {
+    "predicate": {
+      "thinking": 0.4
+    },
+    "model": "imagineanything:item/think_second"
+  },
+  {
+    "predicate": {
+      "thinking": 0.8
+    },
+    "model": "imagineanything:item/think_third"
+  }
+]
+}
