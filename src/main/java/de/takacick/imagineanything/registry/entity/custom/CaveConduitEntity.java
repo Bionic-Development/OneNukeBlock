@@ -87,10 +87,10 @@ public class CaveConduitEntity extends MobEntity {
 
     @Override
     protected void initDataTracker() {
-        getDataTracker().startTracking(FIRST_TARGET, null);
-        getDataTracker().startTracking(SECOND_TARGET, null);
-        getDataTracker().startTracking(THIRD_TARGET, null);
-        getDataTracker().startTracking(FOURTH_TARGET, null);
+        getDataTracker().startTracking(FIRST_TARGET, new BlockPos(0, -100, 0));
+        getDataTracker().startTracking(SECOND_TARGET, new BlockPos(0, -100, 0));
+        getDataTracker().startTracking(THIRD_TARGET, new BlockPos(0, -100, 0));
+        getDataTracker().startTracking(FOURTH_TARGET, new BlockPos(0, -100, 0));
         super.initDataTracker();
     }
 
@@ -165,7 +165,7 @@ public class CaveConduitEntity extends MobEntity {
                 for (int i = 0; i < 4; i++) {
                     BlockPos blockPos = getBlockPos(i);
 
-                    if (blockPos == null) {
+                    if (blockPos == null || blockPos.getY() <= -100) {
                         HitResult hitResult = raycast(20, -180 + (i * 90f) + (float) world.getRandom().nextGaussian() * 15f,
                                 30f + (float) world.getRandom().nextGaussian() * 20f, false);
                         if (hitResult instanceof BlockHitResult blockHitResult && !hitResult.getType().equals(HitResult.Type.MISS)) {

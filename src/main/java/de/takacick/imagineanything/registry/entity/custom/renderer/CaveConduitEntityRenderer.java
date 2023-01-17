@@ -102,7 +102,7 @@ public class CaveConduitEntityRenderer extends EntityRenderer<CaveConduitEntity>
             matrices.push();
 
             BlockPos blockPos = caveConduitEntity.getBlockPos(i);
-            if (blockPos != null) {
+            if (blockPos != null && blockPos.getY() > -100) {
                 float lx = (float) (blockPos.getX() + 0.5 - MathHelper.lerp(g, caveConduitEntity.prevX, caveConduitEntity.getX()));
                 float mx = (float) (blockPos.getY() + 0.5 - MathHelper.lerp(g, caveConduitEntity.prevY, caveConduitEntity.getY()));
                 float rx = (float) (blockPos.getZ() + 0.5 - MathHelper.lerp(g, caveConduitEntity.prevZ, caveConduitEntity.getZ()));
