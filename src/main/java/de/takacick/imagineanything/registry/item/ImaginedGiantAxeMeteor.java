@@ -1,5 +1,6 @@
 package de.takacick.imagineanything.registry.item;
 
+import de.takacick.imagineanything.ImagineAnything;
 import de.takacick.imagineanything.registry.entity.projectiles.GiantAxeMeteorEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -7,10 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class ImaginedGiantAxeMeteor extends Item {
+public class ImaginedGiantAxeMeteor extends Item implements Imagined {
 
     public ImaginedGiantAxeMeteor(Settings settings) {
         super(settings);
@@ -32,4 +34,9 @@ public class ImaginedGiantAxeMeteor extends Item {
         }
         return super.use(world, user, hand);
     }
+    @Override
+    public Identifier getTexture() {
+        return new Identifier(ImagineAnything.MOD_ID, "textures/item/imagined_giant_axe_meteor.png");
+    }
+
 }

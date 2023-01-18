@@ -1,5 +1,6 @@
 package de.takacick.imagineanything.registry.item;
 
+import de.takacick.imagineanything.ImagineAnything;
 import de.takacick.imagineanything.registry.EntityRegistry;
 import de.takacick.imagineanything.registry.entity.living.AlfredThePickaxeEntity;
 import net.minecraft.block.BlockState;
@@ -11,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -18,7 +20,7 @@ import net.minecraft.world.event.GameEvent;
 
 import java.util.Objects;
 
-public class ImaginedAlfredThePickaxe extends Item {
+public class ImaginedAlfredThePickaxe extends Item implements Imagined {
 
     public ImaginedAlfredThePickaxe(Settings settings) {
         super(settings);
@@ -58,6 +60,11 @@ public class ImaginedAlfredThePickaxe extends Item {
 
             return ActionResult.CONSUME;
         }
+    }
+
+    @Override
+    public Identifier getTexture() {
+        return new Identifier(ImagineAnything.MOD_ID, "textures/item/imagined_alfred_the_pickaxe.png");
     }
 }
 

@@ -25,6 +25,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -36,7 +37,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImaginedMallBartering extends Item {
+public class ImaginedMallBartering extends Item implements Imagined {
     private final List<Direction> directionList = new ArrayList<>();
 
     public ImaginedMallBartering(Settings settings) {
@@ -147,5 +148,10 @@ public class ImaginedMallBartering extends Item {
                 }
             }
         }
+    }
+
+    @Override
+    public Identifier getTexture() {
+        return new Identifier(ImagineAnything.MOD_ID, "textures/item/imagined_mall_bartering.png");
     }
 }

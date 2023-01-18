@@ -1,5 +1,6 @@
 package de.takacick.imagineanything.registry.item;
 
+import de.takacick.imagineanything.ImagineAnything;
 import de.takacick.imagineanything.ImagineAnythingClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -7,13 +8,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class Thought extends Item {
+public class Thought extends Item implements Imagined {
     public Thought(Settings settings) {
         super(settings);
     }
@@ -43,5 +45,10 @@ public class Thought extends Item {
     @Override
     public boolean hasGlint(ItemStack stack) {
         return stack.hasNbt() || super.hasGlint(stack);
+    }
+
+    @Override
+    public Identifier getTexture() {
+        return new Identifier(ImagineAnything.MOD_ID, "textures/item/thought.png");
     }
 }
