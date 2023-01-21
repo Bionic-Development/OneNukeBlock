@@ -50,7 +50,6 @@ public class HeadBrain {
                                 playerEntity.equals(headEntity.getOwner()), 6.0f)),
                         Pair.of(1, new GoTowardsLookTarget(1.0f, 3))),
                 ImmutableSet.of());
-
     }
 
     public static void updateActivities(HeadEntity allay) {
