@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.takacick.stealbodyparts.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "LivingEntityMixin",
+    "PlayerEntityMixin"
+  ],
+  "client": [
+    "ClientPlayerEntityMixin",
+    "HeldItemRendererMixin",
+    "IngameHudAccessor",
+    "MinecraftClientMixin",
+    "ModelPartMixin",
+    "PlayerEntityModelMixin",
+    "PlayerEntityRendererMixin",
+    "WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

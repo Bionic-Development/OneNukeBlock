@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "imagineanything",
+  "id": "stealbodyparts",
   "version": "${version}",
-  "name": "ImagineAnything Mod",
-  "description": "ImagineAnything",
+  "name": "StealBodyParts Mod",
+  "description": "StealBodyParts",
   "authors": [
     "Takacick"
   ],
@@ -12,22 +12,22 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/imagineanything/icon.png",
+  "icon": "assets/stealbodyparts/icon.png",
   "environment": "*",
-  "accessWidener" : "imagineanything.accesswidener",
+  "accessWidener" : "stealbodyparts.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.imagineanything.ImagineAnything"
+      "de.takacick.stealbodyparts.StealBodyParts"
     ],
     "client": [
-      "de.takacick.imagineanything.ImagineAnythingClient"
+      "de.takacick.stealbodyparts.StealBodyPartsClient"
     ]
   },
   "mixins": [
-    "imagineanything.mixins.json"
+    "stealbodyparts.mixins.json"
   ],
   "depends": {
-    "bionicutils": ">=1.0.5",
+    "bionicutils": ">=1.1.0",
     "fabricloader": ">=0.14.6",
     "fabric": "*",
     "minecraft": "~1.19",
