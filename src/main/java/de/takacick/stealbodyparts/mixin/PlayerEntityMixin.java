@@ -4,6 +4,7 @@ import de.takacick.stealbodyparts.StealBodyParts;
 import de.takacick.stealbodyparts.access.PlayerProperties;
 import de.takacick.stealbodyparts.registry.ItemRegistry;
 import de.takacick.stealbodyparts.registry.particles.goop.GoopDropParticleEffect;
+import de.takacick.stealbodyparts.utils.BodyPart;
 import de.takacick.utils.data.BionicDataTracker;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
@@ -34,9 +35,11 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     @Shadow
     public abstract SoundCategory getSoundCategory();
 
+    private static final TrackedData<Byte> stealbodyparts$BODY_PARTS = BionicDataTracker.registerData(new Identifier(StealBodyParts.MOD_ID, "parts"), TrackedDataHandlerRegistry.BYTE);
     private static final TrackedData<Boolean> stealbodyparts$HEART = BionicDataTracker.registerData(new Identifier(StealBodyParts.MOD_ID, "heart"), TrackedDataHandlerRegistry.BOOLEAN);
     private final AnimationState stealbodyparts$heartRemovalAnimationState = new AnimationState();
     private int stealbodyparts$heartRemovalTicks = 0;
+    private BodyPart stealbodyparts$nextBodyPart;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -44,6 +47,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     public void initDataTracker(CallbackInfo info) {
+        getDataTracker().startTracking(stealbodyparts$BODY_PARTS, (byte) 0);
         getDataTracker().startTracking(stealbodyparts$HEART, false);
     }
 
@@ -55,7 +59,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
                 if (this.stealbodyparts$heartRemovalTicks <= 0) {
                     Vec3d right = getRotationVector(getPitch(), getYaw() + 90).multiply(0.05);
-                    Vec3d vel = getRotationVector().multiply(0.15).add(right.getX() * world.getRandom().nextGaussian(), 0, right.getZ() * world.getRandom().nextGaussian());
+                    Vec3d vel = getRotationVector().multiply(0.35).add(right.getX() * world.getRandom().nextGaussian(), 0.1, right.getZ() * world.getRandom().nextGaussian());
                     ItemEntity itemEntity
                             = new ItemEntity(world, getX(), getBodyY(0.65), getZ(), ItemRegistry.HEART.getDefaultStack(), vel.getX(), vel.getY(), vel.getZ());
                     itemEntity.setPickupDelay(30);
@@ -92,14 +96,23 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
     public void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo info) {
+        nbt.putByte("stealbodyparts$bodyparts", getDataTracker().get(stealbodyparts$BODY_PARTS));
         nbt.putBoolean("stealbodyparts$removedHeart", getDataTracker().get(stealbodyparts$HEART));
         nbt.putInt("stealbodyparts$heartRemovalTicks", this.stealbodyparts$heartRemovalTicks);
+        if (this.stealbodyparts$nextBodyPart != null) {
+            nbt.putString("stealbodyparts$nextBodyPart", this.stealbodyparts$nextBodyPart.getName());
+        }
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo info) {
+        getDataTracker().set(stealbodyparts$BODY_PARTS, nbt.getByte("stealbodyparts$bodyparts"));
         getDataTracker().set(stealbodyparts$HEART, nbt.getBoolean("stealbodyparts$removedHeart"));
         this.stealbodyparts$heartRemovalTicks = nbt.getInt("stealbodyparts$heartRemovalTicks");
+
+        if (nbt.contains("stealbodyparts$nextBodyPart", NbtCompound.STRING_TYPE)) {
+            this.stealbodyparts$nextBodyPart = BodyPart.getByName(nbt.getString("stealbodyparts$nextBodyPart"));
+        }
     }
 
     public AnimationState stealbodyparts$getHeartRemovalState() {
@@ -116,6 +129,27 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     public void stealbodyparts$setHeartRemovalTicks(int heartRemovalTicks) {
         this.stealbodyparts$heartRemovalTicks = heartRemovalTicks;
+    }
+
+    public void stealbodyparts$setBodyPart(int index, boolean value) {
+        byte b = getDataTracker().get(stealbodyparts$BODY_PARTS);
+        if (!value) {
+            getDataTracker().set(stealbodyparts$BODY_PARTS, (byte) (b | 1 << index));
+        } else {
+            getDataTracker().set(stealbodyparts$BODY_PARTS, (byte) (b & ~(1 << index)));
+        }
+    }
+
+    public boolean stealbodyparts$hasBodyPart(int index) {
+        return (getDataTracker().get(stealbodyparts$BODY_PARTS) & 1 << index) == 0;
+    }
+
+    public void stealbodyparts$setNextBodyPart(BodyPart bodyPart) {
+        this.stealbodyparts$nextBodyPart = bodyPart;
+    }
+
+    public BodyPart stealbodyparts$getNextBodyPart() {
+        return this.stealbodyparts$nextBodyPart;
     }
 }
 

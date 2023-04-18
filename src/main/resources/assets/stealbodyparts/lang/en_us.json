@@ -1,6 +1,9 @@
 {
-  "item.stealbodyparts.head": "Head",
   "item.stealbodyparts.iron_heart_carver": "Iron Heart Carver",
+  "item.stealbodyparts.alive_molding_body": "Alive Molding Body",
+  "item.stealbodyparts.iron_scalpel": "Iron Scalpel",
   "item.stealbodyparts.heart": "Heart",
+  "entity.stealbodyparts.alive_molded_boss": "Alive Molded Boss",
+  "entity.stealbodyparts.alive_molding_body": "Alive Molding Body",
   "itemGroup.stealbodyparts.stealbodyparts": "StealBodyParts Items"
 }

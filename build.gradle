@@ -34,11 +34,6 @@ dependencies {
 
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modApi "de.takacick:bionicutils:1.1.0+1.19"
-
-    modImplementation "dev.architectury:architectury:5.9.30-fabric"
-    modImplementation include ("com.github.Draylar.omega-config:omega-config-base:1.2.3-1.18.1") {
-        exclude group: "net.fabricmc.fabric-api"
-    }
 }
 
 processResources {
@@ -65,6 +60,10 @@ jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}"}
     }
+}
+
+runClient {
+    args('--uuid 5983ed3a-c12a-4510-bbba-6c097577900a --username Takacick'.split(' '))
 }
 
 // configure the maven publication

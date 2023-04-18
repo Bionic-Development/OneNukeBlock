@@ -2,15 +2,15 @@ package de.takacick.stealbodyparts.mixin;
 
 import de.takacick.stealbodyparts.access.PlayerProperties;
 import de.takacick.stealbodyparts.registry.entity.custom.renderer.CarvedHeartFeatureRenderer;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.model.ModelPart;
+import de.takacick.stealbodyparts.utils.BodyPart;
+import net.minecraft.block.LightningRodBlock;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.EntityPose;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,19 +28,17 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
         this.addFeature(new CarvedHeartFeatureRenderer<>(this));
     }
 
-    @Inject(method = "renderArm", at = @At("HEAD"), cancellable = true)
-    private void renderArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity player, ModelPart arm, ModelPart sleeve, CallbackInfo info) {
-        if (((PlayerProperties) player).getHeartRemovalState().isRunning()) {
-            System.out.println("TEST");
-            PlayerEntityModel playerEntityModel = this.getModel();
-            playerEntityModel.handSwingProgress = 0.0f;
-            playerEntityModel.sneaking = false;
-            playerEntityModel.leaningPitch = 0.0f;
-
-            float tickDelta = MinecraftClient.getInstance().getTickDelta();
-            playerEntityModel.setAngles(player, 0.0f, tickDelta, getAnimationProgress(player, tickDelta), 0.0f, 0.0f);
-            playerEntityModel.setAngles(player, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-
+    @Inject(method = "setupTransforms(Lnet/minecraft/client/network/AbstractClientPlayerEntity;Lnet/minecraft/client/util/math/MatrixStack;FFF)V", at = @At("HEAD"), cancellable = true)
+    private void setupTransforms(AbstractClientPlayerEntity abstractClientPlayerEntity, MatrixStack matrixStack, float f, float g, float h, CallbackInfo info) {
+        if (abstractClientPlayerEntity instanceof PlayerProperties playerProperties) {
+            if (!abstractClientPlayerEntity.getPose().equals(EntityPose.SLEEPING)
+                    && !abstractClientPlayerEntity.getPose().equals(EntityPose.SWIMMING)
+                    && !abstractClientPlayerEntity.getPose().equals(EntityPose.SPIN_ATTACK)) {
+                if (!playerProperties.hasBodyPart(BodyPart.RIGHT_LEG.getIndex())
+                        && !playerProperties.hasBodyPart(BodyPart.LEFT_LEG.getIndex())) {
+                    matrixStack.translate(0, -0.73, 0);
+                }
+            }
         }
     }
 }

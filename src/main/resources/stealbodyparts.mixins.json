@@ -4,10 +4,16 @@
   "package": "de.takacick.stealbodyparts.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "EntityMixin",
+    "EntityPositionSourceAccessor",
     "LivingEntityMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "ServerPlayerEntityMixin",
+    "VibrationListenerMixin",
+    "WardenEntityMixin"
   ],
   "client": [
+    "BuiltinModelItemRendererMixin",
     "ClientPlayerEntityMixin",
     "HeldItemRendererMixin",
     "IngameHudAccessor",

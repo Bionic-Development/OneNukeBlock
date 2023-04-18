@@ -27,7 +27,7 @@ public class IronHeartCarver extends Item {
         }
         if (!world.isClient) {
             playerProperties.setRemovedHeart(true);
-            playerProperties.setHeartRemovalTicks(30);
+            playerProperties.setHeartRemovalTicks(35);
             BionicUtils.sendEntityStatus((ServerWorld) world, user, StealBodyParts.IDENTIFIER, 1);
         }
 

@@ -2,6 +2,7 @@ package de.takacick.stealbodyparts.registry.entity.custom.model;
 
 import de.takacick.stealbodyparts.access.ModelPartProperties;
 import net.minecraft.client.model.*;
+import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.Direction;
 
@@ -65,6 +66,42 @@ public class BodyModel<T extends LivingEntity>
                 .uv(0, -4).cuboid(3.0F, -21.0F, -2.0F, 0.0F, 3.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
 
         return TexturedModelData.of(modelData, 64, 64);
+    }
+
+    public static ModelData getNoOffsetTexturedModelData(Dilation dilation, boolean slim) {
+        ModelData modelData = BipedEntityModel.getModelData(dilation, 0.0f);
+        ModelPartData modelPartData = modelData.getRoot();
+        if (slim) {
+            modelPartData.addChild("right_arm", ModelPartBuilder.create().uv(40, 16).cuboid(-2F, 0.0f, -2.0F, 3.0F, 12.0F, 4.0F, new Dilation(0.0F))
+                    .uv(40, 32).cuboid(-2F, 0.0f, -2.0F, 3.0F, 12.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(0.0F, 12, 0.0F));
+
+            modelPartData.addChild("left_arm", ModelPartBuilder.create().uv(40, 16).cuboid(-2F, 0.0f, -2.0F, 3.0F, 12.0F, 4.0F, new Dilation(0.0F))
+                    .uv(48, 48).cuboid(-2F, 0.0f, -2.0F, 3.0F, 12.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(0.0F, 12, 0.0F));
+        } else {
+            modelPartData.addChild("right_arm", ModelPartBuilder.create()
+                            .uv(40, 16).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F))
+                            .uv(40, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.25F)),
+                    ModelTransform.pivot(0.0F, 12.0F, 0.0F));
+
+            modelPartData.addChild("left_arm", ModelPartBuilder.create()
+                            .uv(32, 48).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F))
+                            .uv(48, 48).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.25F)),
+                    ModelTransform.pivot(0.0F, 12.0F, 0.0F));
+        }
+
+        ModelPartData right_leg = modelPartData.addChild("right_leg", ModelPartBuilder.create()
+                        .uv(0, 16).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F))
+                        .uv(0, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.25F)),
+                ModelTransform.pivot(0.0F, 12.0F, 0.0F));
+
+        ModelPartData left_leg = modelPartData.addChild("left_leg", ModelPartBuilder.create()
+                        .uv(16, 48).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F))
+                        .uv(0, 48).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.25F)),
+                ModelTransform.pivot(0.0F, 12.0F, 0.0F));
+
+        modelPartData.addChild("left_pants", ModelPartBuilder.create().uv(0, 48).cuboid(0.0f, 0.0f, 0.0f, 4.0f, 12.0f, 4.0f, dilation.add(0.25f)), ModelTransform.pivot(1.9f, 12.0f, 0.0f));
+        modelPartData.addChild("right_pants", ModelPartBuilder.create().uv(0, 32).cuboid(0.0f, 0.0f, 0.0f, 4.0f, 12.0f, 4.0f, dilation.add(0.25f)), ModelTransform.pivot(-1.9f, 12.0f, 0.0f));
+        return modelData;
     }
 
     @Override
