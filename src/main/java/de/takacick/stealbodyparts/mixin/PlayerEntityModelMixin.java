@@ -105,7 +105,7 @@ public class PlayerEntityModelMixin<T extends LivingEntity> extends BipedEntityM
                 float pivotY = modelTransform.pivotY;
                 float pivotZ = modelTransform.pivotZ;
 
-                modelPart.setPivot(pivotX  > 0 ? 4f : -4f, -6f, pivotZ  * -4f);
+                modelPart.setPivot(pivotX > 0 ? 4f : -4f, -6f, pivotZ * -4f);
                 modelPart.pitch *= 0.1f;
                 modelPart.yaw *= 0.1f;
                 modelPart.rotate(matrices);
@@ -115,7 +115,6 @@ public class PlayerEntityModelMixin<T extends LivingEntity> extends BipedEntityM
             }
         }
     }
-
 
     public BodyModel<T> stealbodyparts$getBodyModel() {
         return this.stealbodyparts$bodyModel;

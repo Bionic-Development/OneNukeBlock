@@ -35,6 +35,10 @@ public class AliveMoldingBodyFeatureRenderer<T extends AliveMoldingBodyEntity, M
         boolean bl2 = !bl && !livingEntity.isInvisibleTo(client.player);
         int p = LivingEntityRenderer.getOverlay(livingEntity, this.getAnimationCounter());
 
+        if(!bl && !bl2) {
+            return;
+        }
+
         for (MoldingPart bodyPart : MoldingPart.values()) {
             if (AliveMoldingBodyEntityModel.bodyParts.containsKey(bodyPart) && livingEntity.hasBodyPart(bodyPart)) {
                 GameProfile gameProfile = livingEntity.getBodyPart(bodyPart);

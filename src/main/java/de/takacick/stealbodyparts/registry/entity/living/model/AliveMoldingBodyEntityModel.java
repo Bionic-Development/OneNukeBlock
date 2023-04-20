@@ -87,13 +87,23 @@ public class AliveMoldingBodyEntityModel<T extends AliveMoldingBodyEntity> exten
                         .cuboid(-4.0F, -3.0F, -2.0F, 8.0F, 12.0F, 4.0F, new Dilation(0.0F)),
                 ModelTransform.pivot(0.0F, -0, 0.0F));
 
-        ModelPartData head_1 = body.addChild("head", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.of(3.5445F, -2.3662F, 0.8F, 0.0F, 0.0F, 0.1745F));
+        ModelPartData head_1 = body.addChild("head",
+                ModelPartBuilder.create()
+                        .uv(0, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F))
+                        .uv(32, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.5F)), ModelTransform.of(3.5445F, -2.3662F, 0.8F, 0.0F, 0.0F, 0.1745F));
 
-        ModelPartData head_2 = body.addChild("head_1", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.of(-2.6923F, -2.5332F, 0.0F, 0.0F, 0.0F, -0.0873F));
+        ModelPartData head_2 = body.addChild("head_1",
+                ModelPartBuilder.create()
+                        .uv(0, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F))
+                        .uv(32, 0).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.5F)), ModelTransform.of(-2.6923F, -2.5332F, 0.0F, 0.0F, 0.0F, -0.0873F));
 
-        ModelPartData head_3 = body.addChild("head_2", ModelPartBuilder.create(), ModelTransform.of(-2.6923F, -2.5332F, 0.0F, 0.0F, 0.0F, -0.0873F));
+        ModelPartData head_3 = body.addChild("head_2", ModelPartBuilder.create(),
+                ModelTransform.of(-2.6923F, -2.5332F, 0.0F, 0.0F, 0.0F, -0.0873F));
 
-        ModelPartData head_r1 = head_3.addChild("head_r1", ModelPartBuilder.create().uv(0, 0).cuboid(-2.5F, -7.6F, -5.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.of(4.6923F, 9.5332F, 2.0F, 0.3054F, 3.1416F, -0.1745F));
+        ModelPartData head_r1 = head_3.addChild("head_r1",
+                ModelPartBuilder.create()
+                        .uv(0, 0).cuboid(-2.5F, -7.6F, -5.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F))
+                        .uv(32, 0).cuboid(-2.5F, -7.6F, -5.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.5F)), ModelTransform.of(4.6923F, 9.5332F, 2.0F, 0.3054F, 3.1416F, -0.1745F));
 
         ModelPartData right_arm = body.addChild("right_arm", ModelPartBuilder.create().uv(40, 16).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F))
                 .uv(40, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(-6.0F, -3.0F, 0.0F));
