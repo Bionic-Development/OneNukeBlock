@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "everythinghearts:heart_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "everythinghearts:heart_planks"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "everythinghearts:block/multi_heart_block"
+  }
+}

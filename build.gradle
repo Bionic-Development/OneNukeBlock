@@ -23,7 +23,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/stealbodyparts.accesswidener")
+    accessWidenerPath = file("src/main/resources/everythinghearts.accesswidener")
 }
 
 dependencies {
@@ -60,10 +60,6 @@ jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}"}
     }
-}
-
-runClient {
-    args('--uuid 5983ed3a-c12a-4510-bbba-6c097577900a --username Takacick'.split(' '))
 }
 
 // configure the maven publication

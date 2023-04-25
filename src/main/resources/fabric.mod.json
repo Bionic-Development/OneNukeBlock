@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "stealbodyparts",
+  "id": "everythinghearts",
   "version": "${version}",
-  "name": "StealBodyParts Mod",
-  "description": "StealBodyParts",
+  "name": "EverythingHearts Mod",
+  "description": "EverythingHearts",
   "authors": [
     "Takacick"
   ],
@@ -12,19 +12,19 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/stealbodyparts/icon.png",
+  "icon": "assets/everythinghearts/icon.png",
   "environment": "*",
-  "accessWidener" : "stealbodyparts.accesswidener",
+  "accessWidener" : "everythinghearts.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.stealbodyparts.StealBodyParts"
+      "de.takacick.everythinghearts.EverythingHearts"
     ],
     "client": [
-      "de.takacick.stealbodyparts.StealBodyPartsClient"
+      "de.takacick.everythinghearts.EverythingHeartsClient"
     ]
   },
   "mixins": [
-    "stealbodyparts.mixins.json"
+    "everythinghearts.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.0",

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DDD",
+    "D S",
+    "  S"
+  ],
+  "key": {
+    "D": {
+      "item": "everythinghearts:heart"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "everythinghearts:heart_scythe"
+  }
+}
