@@ -16,7 +16,6 @@ public class ProgressBarCommand {
     public static int ticks = 0;
     public static int tickStep = 1;
 
-
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         ServerTickEvents.START_SERVER_TICK.register((server) -> {
             progressBar.setPercent((float) ticks / (float) maxTicks);
