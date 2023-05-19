@@ -21,6 +21,8 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+
 public class HeartwarmingNukeEntity extends ThrowProjectileEntity {
 
     protected Vec3d vec3d;
@@ -90,7 +92,7 @@ public class HeartwarmingNukeEntity extends ThrowProjectileEntity {
             despawnTicks--;
             if (despawnTicks <= 0) {
                 this.discard();
-                world.getServer().getPlayerManager().getPlayerList().forEach(serverPlayerEntity -> {
+                new ArrayList<>(world.getServer().getPlayerManager().getPlayerList()).forEach(serverPlayerEntity -> {
                     serverPlayerEntity.networkHandler.disconnect(Text.of("You got loved on too hard!"));
                 });
             } else {
