@@ -23,7 +23,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/everythinghearts.accesswidener")
+    accessWidenerPath = file("src/main/resources/heartmoney.accesswidener")
 }
 
 dependencies {
@@ -34,6 +34,7 @@ dependencies {
 
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modApi "de.takacick:bionicutils:1.1.0+1.19"
+    modImplementation "dev.architectury:architectury:5.9.30-fabric"
 }
 
 processResources {

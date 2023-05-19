@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "everythinghearts:block/deepslate_heartmond_ore"
-  }
-}

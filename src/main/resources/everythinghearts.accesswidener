@@ -1,9 +1,0 @@
-accessWidener	v1	named
-
-accessible class net/minecraft/client/render/item/HeldItemRenderer$HandRenderType
-accessible method net/minecraft/entity/projectile/ProjectileEntity     <init>    (Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;)V
-accessible class net/minecraft/client/model/ModelPart
-accessible    class    net/minecraft/client/model/ModelPart$Vertex
-accessible    class    net/minecraft/client/model/ModelPart$Quad
-
-accessible    field    net/minecraft/client/model/ModelPart$Cuboid    sides    [Lnet/minecraft/client/model/ModelPart$Quad;
