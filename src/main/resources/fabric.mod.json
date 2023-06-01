@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "heartmoney",
+  "id": "deathmoney",
   "version": "${version}",
   "name": "HeartMoney Mod",
   "description": "HeartMoney",
@@ -12,23 +12,22 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/heartmoney/icon.png",
+  "icon": "assets/deathmoney/icon.png",
   "environment": "*",
-  "accessWidener" : "heartmoney.accesswidener",
+  "accessWidener" : "deathmoney.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.heartmoney.HeartMoney"
+      "de.takacick.deathmoney.DeathMoney"
     ],
     "client": [
-      "de.takacick.heartmoney.HeartMoneyClient"
+      "de.takacick.deathmoney.DeathMoneyClient"
     ]
   },
   "mixins": [
-    "heartmoney.mixins.json"
+    "deathmoney.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.0",
-    "architectury": ">=5.9.30",
     "fabricloader": ">=0.14.6",
     "fabric": "*",
     "minecraft": "~1.19",

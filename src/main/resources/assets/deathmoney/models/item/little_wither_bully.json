@@ -1,0 +1,45 @@
+{
+	"parent": "builtin/entity",
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "deathmoney:entity/little_wither_bully"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [70, 45, 0],
+			"translation": [0, 2, 5],
+			"scale": [0.65, 0.65, 0.65]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [70, 45, 0],
+			"translation": [0, 2, 5],
+			"scale": [0.65, 0.65, 0.65]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 62, 0],
+			"translation": [2.75, 4, -0.75],
+			"scale": [0.73, 0.73, 0.73]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 62, 0],
+			"translation": [2.75, 4, -0.75],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 5, 0]
+		},
+		"gui": {
+			"rotation": [27, -157, 0],
+			"translation": [0, 1.5, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"head": {
+			"translation": [0, 11, 0]
+		},
+		"fixed": {
+			"translation": [0, 3.75, 0]
+		}
+	}
+}

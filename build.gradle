@@ -19,11 +19,10 @@ repositories {
     flatDir {
         dirs 'lib'
     }
-    maven { url 'https://jitpack.io' }
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/heartmoney.accesswidener")
+    accessWidenerPath = file("src/main/resources/deathmoney.accesswidener")
 }
 
 dependencies {
