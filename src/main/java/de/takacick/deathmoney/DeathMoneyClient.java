@@ -111,8 +111,8 @@ public class DeathMoneyClient implements ClientModInitializer {
                 Entity entity = world.getEntityById(entityId);
                 if (entity != null) {
                     if (status == 1) {
-                        world.playSound(playerEntity.getX(), playerEntity.getBodyY(0.5), playerEntity.getZ(), SoundEvents.ITEM_TOTEM_USE, SoundCategory.PLAYERS, 0.05f, 1f, false);
-                        client.particleManager.addEmitter(playerEntity, ParticleTypes.TOTEM_OF_UNDYING, 0);
+                        world.playSound(entity.getX(), entity.getBodyY(0.5), entity.getZ(), SoundEvents.ITEM_TOTEM_USE, SoundCategory.PLAYERS, 0.05f, 1f, false);
+                        client.particleManager.addEmitter(entity, ParticleTypes.TOTEM_OF_UNDYING, 0);
                         if (entity instanceof PlayerProperties playerProperties) {
                             playerProperties.setDeathTicks(0);
                         }
@@ -147,9 +147,9 @@ public class DeathMoneyClient implements ClientModInitializer {
                         };
 
                         if (status == 4) {
-                            world.playSound(playerEntity.getX(), playerEntity.getBodyY(0.5), playerEntity.getZ(), SoundEvents.ENTITY_PLAYER_HURT_SWEET_BERRY_BUSH, SoundCategory.PLAYERS, 0.8f, 1f, false);
+                            world.playSound(entity.getX(), entity.getBodyY(0.5), entity.getZ(), SoundEvents.ENTITY_PLAYER_HURT_SWEET_BERRY_BUSH, SoundCategory.PLAYERS, 0.8f, 1f, false);
                         } else if (status == 5) {
-                            world.playSound(playerEntity.getX(), playerEntity.getBodyY(0.5), playerEntity.getZ(), SoundEvents.ENTITY_PLAYER_HURT_ON_FIRE, SoundCategory.PLAYERS, 0.8f, 1f, false);
+                            world.playSound(entity.getX(), entity.getBodyY(0.5), entity.getZ(), SoundEvents.ENTITY_PLAYER_HURT_ON_FIRE, SoundCategory.PLAYERS, 0.8f, 1f, false);
                             for (int i = 0; i < 5; ++i) {
                                 double g = entity.getX();
                                 double h = entity.getBodyY(0.45 + random.nextDouble() * 0.55);
@@ -176,8 +176,8 @@ public class DeathMoneyClient implements ClientModInitializer {
                             }
                             return;
                         } else {
-                            world.playSound(playerEntity.getX(), playerEntity.getBodyY(0.5), playerEntity.getZ(), SoundEvents.BLOCK_WOOL_PLACE, SoundCategory.PLAYERS, 0.8f, 1f, false);
-                            world.playSound(playerEntity.getX(), playerEntity.getBodyY(0.5), playerEntity.getZ(), SoundEvents.ENTITY_BEE_STING, SoundCategory.PLAYERS, 0.8f, 1f, false);
+                            world.playSound(entity.getX(), entity.getBodyY(0.5), entity.getZ(), SoundEvents.BLOCK_WOOL_PLACE, SoundCategory.PLAYERS, 0.8f, 1f, false);
+                            world.playSound(entity.getX(), entity.getBodyY(0.5), entity.getZ(), SoundEvents.ENTITY_BEE_STING, SoundCategory.PLAYERS, 0.8f, 1f, false);
 
                             for (int i = 0; i < 4; ++i) {
                                 double g = entity.getX();
@@ -232,7 +232,7 @@ public class DeathMoneyClient implements ClientModInitializer {
                             world.addParticle(ParticleTypes.LAVA, true, g + d, h + e, j + f, d, e, f);
                         }
                     } else if (status == 8) {
-                        ((PlayerProperties) playerEntity).setMeteorShakeTicks(25);
+                        ((PlayerProperties) entity).setMeteorShakeTicks(25);
                     } else if (status == 9) {
                         double g = entity.getX();
                         double j = entity.getZ();
@@ -273,7 +273,7 @@ public class DeathMoneyClient implements ClientModInitializer {
                         }
                     } else if (status == 12) {
                         world.playSound(entity.getX(), entity.getBodyY(0.5), entity.getZ(), ParticleRegistry.DEATH_SHOP_EMERGE, SoundCategory.BLOCKS, 1f, 1f, true);
-                        client.particleManager.addEmitter(playerEntity, ParticleRegistry.BLACK_MATTER_TOTEM, 0);
+                        client.particleManager.addEmitter(entity, ParticleRegistry.BLACK_MATTER_TOTEM, 0);
                     }
                 }
             });
