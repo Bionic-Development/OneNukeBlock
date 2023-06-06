@@ -15,7 +15,6 @@ import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
-
     public static final FlowableFluid BLOOD_STILL = new BloodFluid.Still();
     public static final FlowableFluid BLOOD_FLOW = new BloodFluid.Flowing();
     public static final FluidBlock BLOOD_BLOCK = new BloodFluidBlock(BLOOD_STILL, FabricBlockSettings.copy(Blocks.WATER));

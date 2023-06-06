@@ -35,7 +35,7 @@ public class EntityRegistry {
     );
     public static final EntityType<DeathShopPortalEntity> DEATH_SHOP_PORTAL = Registry.register(
             Registry.ENTITY_TYPE,
-            new Identifier(DeathMoney.MOD_ID, "heart_shop_portal"),
+            new Identifier(DeathMoney.MOD_ID, "death_shop_portal"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, DeathShopPortalEntity::new)
                     .dimensions(EntityDimensions.changing(1.45F, 3.4f)).build()
     );
