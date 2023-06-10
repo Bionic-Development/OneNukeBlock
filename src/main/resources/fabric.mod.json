@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "deathmoney",
   "version": "${version}",
-  "name": "HeartMoney Mod",
-  "description": "HeartMoney",
+  "name": "DeathMoney Mod",
+  "description": "DeathMoney",
   "authors": [
     "Takacick"
   ],
