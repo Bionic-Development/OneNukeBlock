@@ -1,0 +1,40 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.takacick.onedeathblock.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ArmorItemMixin",
+    "BlockItemMixin",
+    "EntityMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "ServerPlayerEntityMixin",
+    "ServerWorldMixin"
+  ],
+  "client": [
+    "AbstractClientPlayerEntityMixin",
+    "BipedEntityModelMixin",
+    "BlockDustParticleMixin",
+    "BuiltinModelItemRendererMixin",
+    "ClientPlayerEntityMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "GameRendererMixin",
+    "HeadEntityRendererMixin",
+    "HeldItemRendererMixin",
+    "IngameHudAccessor",
+    "ItemRendererMixin",
+    "KeyboardInputMixin",
+    "LivingEntityRendererMixin",
+    "MinecraftClientMixin",
+    "MouseMixin",
+    "PlayerEntityModelMixin",
+    "PlayerEntityRendererMixin",
+    "superbrine.ClientPlayNetworkHandlerMixin",
+    "superbrine.InGameHudMixin",
+    "superbrine.KeyboardInputMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

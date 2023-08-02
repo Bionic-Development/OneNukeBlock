@@ -22,7 +22,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/deathmoney.accesswidener")
+    accessWidenerPath = file("src/main/resources/onedeathblock.accesswidener")
 }
 
 dependencies {
@@ -32,8 +32,7 @@ dependencies {
     modApi "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modApi "de.takacick:bionicutils:1.1.0+1.19"
-    modImplementation "dev.architectury:architectury:5.9.30-fabric"
+    modApi "de.takacick:bionicutils:1.1.1+1.19"
 }
 
 processResources {

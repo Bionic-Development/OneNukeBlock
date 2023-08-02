@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "deathmoney",
+  "id": "onedeathblock",
   "version": "${version}",
-  "name": "DeathMoney Mod",
-  "description": "DeathMoney",
+  "name": "OneDeathBlock Mod",
+  "description": "OneDeathBlock",
   "authors": [
     "Takacick"
   ],
@@ -12,22 +12,22 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/deathmoney/icon.png",
+  "icon": "assets/onedeathblock/icon.png",
   "environment": "*",
-  "accessWidener" : "deathmoney.accesswidener",
+  "accessWidener": "onedeathblock.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.deathmoney.DeathMoney"
+      "de.takacick.onedeathblock.OneDeathBlock"
     ],
     "client": [
-      "de.takacick.deathmoney.DeathMoneyClient"
+      "de.takacick.onedeathblock.OneDeathBlockClient"
     ]
   },
   "mixins": [
-    "deathmoney.mixins.json"
+    "onedeathblock.mixins.json"
   ],
   "depends": {
-    "bionicutils": ">=1.1.0",
+    "bionicutils": ">=1.1.1",
     "fabricloader": ">=0.14.6",
     "fabric": "*",
     "minecraft": "~1.19",
