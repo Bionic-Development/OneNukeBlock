@@ -1,9 +1,9 @@
 {
 	"textures": {
-		"0": "onedeathblock:block/edible_tnt_side",
+		"0": "onedeathblock:block/edible_tnt",
 		"1": "minecraft:block/tnt_top",
 		"2": "minecraft:block/tnt_bottom",
-		"particle": "onedeathblock:block/edible_tnt_side"
+		"particle": "onedeathblock:block/edible_tnt"
 	},
 	"elements": [
 		{
