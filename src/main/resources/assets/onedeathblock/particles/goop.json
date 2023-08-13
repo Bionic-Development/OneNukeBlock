@@ -1,9 +1,9 @@
 {
   "textures":
   [
-    "minershop:goop/puddle1",
-    "minershop:goop/puddle2",
-    "minershop:goop/puddle3",
-    "minershop:goop/puddle4"
+    "onedeathblock:goop/puddle1",
+    "onedeathblock:goop/puddle2",
+    "onedeathblock:goop/puddle3",
+    "onedeathblock:goop/puddle4"
   ]
 }

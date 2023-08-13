@@ -173,9 +173,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             if (getEquippedStack(EquipmentSlot.HEAD).getItem() instanceof HeadSpawner) {
                 if (this.onedeathblock$spawnerDelay > 0) {
                     this.onedeathblock$spawnerDelay--;
-                    if (isSneaking()) {
-                        this.onedeathblock$spawnerDelay -= 100;
-                    }
                 }
 
                 if (this.onedeathblock$spawnerDelay <= 0) {

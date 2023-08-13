@@ -4,6 +4,7 @@ import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import de.takacick.onedeathblock.access.PlayerProperties;
+import de.takacick.onedeathblock.damage.DeathDamageSources;
 import de.takacick.onedeathblock.registry.ItemRegistry;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -235,6 +236,15 @@ public class OneBlockHandler {
 
             if (pos.getX() == blockPos.getX() && pos.getY() == blockPos.getY() && pos.getZ() == blockPos.getZ() && !world.isClient) {
                 drop();
+
+                if(player.getMainHandStack().isOf(ItemRegistry.SPIKY_IRON_PICKAXE)) {
+                    if (player instanceof PlayerProperties playerProperties) {
+                        playerProperties.resetDamageDelay();
+                    }
+
+                    player.damage(DeathDamageSources.SPIKY_IRON_PICKAXE, 4f);
+                }
+
                 return false;
             }
             return true;

@@ -20,13 +20,16 @@ public class ExplosivePlacing extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemStack = user.getStackInHand(hand);
 
         if (!world.isClient) {
             BionicUtils.sendEntityStatus((ServerWorld) world, user, OneDeathBlock.IDENTIFIER, 4);
             user.damage(DamageSource.explosion(user), Float.MAX_VALUE);
             user.sendMessage(Text.of("§eUnlocked §cExplosive Placing Ability§e!"));
         }
-
+        if (!user.getAbilities().creativeMode) {
+            itemStack.decrement(1);
+        }
         return super.use(world, user, hand);
     }
 }
