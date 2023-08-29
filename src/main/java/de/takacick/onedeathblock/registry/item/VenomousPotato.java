@@ -9,8 +9,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec2f;
@@ -44,9 +42,6 @@ public class VenomousPotato extends Item {
 
                         OneDeathBlockClient.addPotion(new Vec3d(x, y, z), StatusEffects.WITHER.getColor(), 1);
                     }
-                }
-                if (livingEntity.age % 30 == 0) {
-                    world.playSoundFromEntity(null, livingEntity, SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.AMBIENT, 0.15f, 1f);
                 }
             }
         }
