@@ -1,0 +1,19 @@
+{
+  "block.onesuperblock.super_block": "Super Block",
+  "block.onesuperblock.super_ore": "Super Ore",
+  "block.onesuperblock.deepslate_super_ore": "Deepslate Super Ore",
+  "item.onesuperblock.super_ender_pearl": "Super Ender Pearl",
+  "item.onesuperblock.super_enchanter_book": "Super Enchanter Book",
+  "item.onesuperblock.super_proto": "Super Proto",
+  "item.onesuperblock.super_bridge_egg": "Super Bridge Egg",
+  "block.onesuperblock.super_wool": "Super Wool",
+  "entity.onesuperblock.falling_block": "Falling Block",
+  "entity.onesuperblock.super_villager": "Super Villager",
+  "entity.onesuperblock.super_proto": "Super Proto",
+  "entity.onesuperblock.super_ender_pearl": "Super Ender Pearl",
+  "entity.onesuperblock.super_bridge_egg": "Super Bridge Egg",
+  "entity.onesuperblock.super_fied_warden": "Super-fied Warden",
+  "entity.onesuperblock.super_wither": "Super Wither",
+  "entity.onesuperblock.super_wither_skull": "Super Wither Skull",
+ "itemGroup.onesuperblock.onesuperblock": "OneSuperBlock Items"
+}

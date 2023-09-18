@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond_block"
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_block"
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_block"
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald_block"
+        },
+        {
+          "type": "item",
+          "name": "minecraft:lapis_block"
+        },
+        {
+          "type": "item",
+          "name": "minecraft:redstone_block"
+        },
+        {
+          "type": "item",
+          "name": "minecraft:netherite_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

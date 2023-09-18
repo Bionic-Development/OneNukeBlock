@@ -19,10 +19,11 @@ repositories {
     flatDir {
         dirs 'lib'
     }
+    maven { url 'https://jitpack.io' }
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/onedeathblock.accesswidener")
+    accessWidenerPath = file("src/main/resources/onesuperblock.accesswidener")
 }
 
 dependencies {
@@ -32,7 +33,13 @@ dependencies {
     modApi "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modApi "de.takacick:bionicutils:1.1.1+1.19"
+
+    modApi "de.takacick:bionicutils:1.1.2+1.19"
+    modApi "de.takacick:superitems:1.0.0"
+    modImplementation "dev.architectury:architectury:5.9.30-fabric"
+    modApi("com.github.Virtuoel:Pehkui:3.3.3", {
+        exclude group: "net.fabricmc.fabric-api"
+    })
 }
 
 processResources {

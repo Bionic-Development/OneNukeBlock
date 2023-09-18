@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "onedeathblock",
+  "id": "onesuperblock",
   "version": "${version}",
-  "name": "OneDeathBlock Mod",
-  "description": "OneDeathBlock",
+  "name": "OneSuperBlock Mod",
+  "description": "OneSuperBlock",
   "authors": [
     "Takacick"
   ],
@@ -12,22 +12,23 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/onedeathblock/icon.png",
+  "icon": "assets/onesuperblock/icon.png",
   "environment": "*",
-  "accessWidener": "onedeathblock.accesswidener",
+  "accessWidener": "onesuperblock.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.onedeathblock.OneDeathBlock"
+      "de.takacick.onesuperblock.OneSuperBlock"
     ],
     "client": [
-      "de.takacick.onedeathblock.OneDeathBlockClient"
+      "de.takacick.onesuperblock.OneSuperBlockClient"
     ]
   },
   "mixins": [
-    "onedeathblock.mixins.json"
+    "onesuperblock.mixins.json"
   ],
   "depends": {
-    "bionicutils": ">=1.1.1",
+    "bionicutils": ">=1.1.2",
+    "superitems": ">=1.0.0",
     "fabricloader": ">=0.14.6",
     "fabric": "*",
     "minecraft": "~1.19",
