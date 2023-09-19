@@ -30,7 +30,7 @@ public class SuperEnderPearl extends Item implements SuperItem {
         if (!world.isClient) {
             SuperEnderPearlEntity superEnderPearlEntity = new SuperEnderPearlEntity(world, user);
             superEnderPearlEntity.setItem(itemStack);
-            superEnderPearlEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 1.0f);
+            superEnderPearlEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 2.5f, 1.0f);
             world.spawnEntity(superEnderPearlEntity);
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));

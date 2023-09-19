@@ -360,7 +360,7 @@ public class OneSuperBlockClient implements ClientModInitializer {
                 }
                 MutableText mutableText = Text.empty();
 
-                String text = "Challenge Compelte!";
+                String text = "Challenge Complete!";
 
                 int index = text.length();
 

@@ -3,26 +3,18 @@ package de.takacick.onesuperblock.registry.entity.projectiles;
 import de.takacick.onesuperblock.OneSuperBlock;
 import de.takacick.onesuperblock.registry.EntityRegistry;
 import de.takacick.onesuperblock.registry.ItemRegistry;
-import de.takacick.superitems.registry.ParticleRegistry;
-import de.takacick.superitems.registry.particles.RainbowParticleEffect;
-import de.takacick.superitems.registry.particles.ShockwaveParticleEffect;
 import de.takacick.utils.BionicUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.EndermiteEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -55,10 +47,9 @@ public class SuperEnderPearlEntity
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
 
-
         if (!this.world.isClient && !this.isRemoved()) {
             Entity entity = this.getOwner();
-            if(entity != null) {
+            if (entity != null) {
                 BionicUtils.sendEntityStatus((ServerWorld) this.getWorld(), entity, OneSuperBlock.IDENTIFIER, 3);
                 if (entity instanceof ServerPlayerEntity serverPlayerEntity) {
                     if (serverPlayerEntity.networkHandler.getConnection().isOpen() && serverPlayerEntity.world == this.world && !serverPlayerEntity.isSleeping()) {
@@ -80,13 +71,13 @@ public class SuperEnderPearlEntity
     }
 
     protected float getGravity() {
-        return 0.001f;
+        return 0f;
     }
 
     @Override
     public void tick() {
         Entity entity = this.getOwner();
-        if(this.age > 10000) {
+        if (this.age > 10000) {
             this.discard();
         }
 
