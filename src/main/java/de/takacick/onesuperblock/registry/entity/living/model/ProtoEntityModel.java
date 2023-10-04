@@ -95,7 +95,7 @@ public class ProtoEntityModel<T extends WolfEntity>
             this.torso.setPivot(0.0F, 18.0F, 0.0F);
             this.torso.pitch = 0.7853982F;
             this.neck.pitch = -1.5708F;
-            this.tail.setPivot(-1.0F, 21.0F, 6.0F);
+            this.tail.setPivot(0.0F, 21.0F, 6.0F);
             this.rightHindLeg.setPivot(-2.5F, 22.7F, 2.0F);
             this.rightHindLeg.pitch = 4.712389F;
             this.leftHindLeg.setPivot(0.5F, 22.7F, 2.0F);
@@ -108,7 +108,7 @@ public class ProtoEntityModel<T extends WolfEntity>
             this.torso.setPivot(0.0F, 14.0F, 2.0F);
             this.torso.pitch = 1.5707964F;
             this.neck.pitch = -this.torso.pitch;
-            this.tail.setPivot(-1.0F, 12.0F, 8.0F);
+            this.tail.setPivot(0.0F, 12.0F, 8.0F);
             this.rightHindLeg.setPivot(-2.5F, 16.0F, 7.0F);
             this.leftHindLeg.setPivot(0.5F, 16.0F, 7.0F);
             this.rightFrontLeg.setPivot(-2.5F, 16.0F, -4.0F);
