@@ -21,7 +21,7 @@ public abstract class ElementalBlock extends Block {
     }
 
     public Text getBossBarTitle() {
-        return Text.of("Process: ");
+        return Text.of("Progress: ");
     }
 
     public BossBar.Color getBossBarColor() {
