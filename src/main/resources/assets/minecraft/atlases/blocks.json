@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "elementalblock:item/water_slime_ball"
+    },
+    {
+      "type": "single",
+      "resource": "elementalblock:entity/lava_bionic_flame"
+    }
+  ]
+}

@@ -1,6 +1,0 @@
-accessWidener	v1	named
-
-accessible class net/minecraft/client/font/TextRenderer$Drawer
-accessible method net/minecraft/client/font/TextRenderer getFontStorage (Lnet/minecraft/util/Identifier;)Lnet/minecraft/client/font/FontStorage;
-accessible method net/minecraft/client/font/TextRenderer drawGlyph (Lnet/minecraft/client/font/GlyphRenderer;ZZFFFLnet/minecraft/util/math/Matrix4f;Lnet/minecraft/client/render/VertexConsumer;FFFFI)V
-accessible method net/minecraft/entity/projectile/ProjectileEntity     <init>    (Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;)V

@@ -1,0 +1,36 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.takacick.elementalblock.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ItemEntityMixin",
+    "LavaFluidMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "WaterFluidMixin",
+    "warden.EntityPositionSourceAccessor",
+    "warden.VibrationListenerMixin",
+    "warden.WardenEntityMixin"
+  ],
+  "client": [
+    "AbstractClientPlayerEntityMixin",
+    "BlockDustParticleMixin",
+    "BuiltinModelItemRendererMixin",
+    "ClientLivingEntityMixin",
+    "EntityRenderDispatcherMixin",
+    "HeldItemFeatureRendererMixin",
+    "HeldItemRendererMixin",
+    "InGameHudAccessor",
+    "ItemRendererMixin",
+    "MinecraftClientMixin",
+    "PlayerEntityModelMixin",
+    "PlayerEntityRendererMixin",
+    "PlayerListEntryMixin",
+    "RenderLayersMixin",
+    "WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

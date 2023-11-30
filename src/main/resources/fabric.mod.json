@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "onesuperblock",
+  "id": "oneelementalblock",
   "version": "${version}",
-  "name": "OneSuperBlock Mod",
-  "description": "OneSuperBlock",
+  "name": "OneElementalBlock Mod",
+  "description": "OneElementalBlock",
   "authors": [
     "Takacick"
   ],
@@ -12,26 +12,25 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/onesuperblock/icon.png",
+  "icon": "assets/elementalblock/icon.png",
   "environment": "*",
-  "accessWidener": "onesuperblock.accesswidener",
+  "accessWidener": "elementalblock.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.onesuperblock.OneSuperBlock"
+      "de.takacick.elementalblock.OneElementalBlock"
     ],
     "client": [
-      "de.takacick.onesuperblock.OneSuperBlockClient"
+      "de.takacick.elementalblock.OneElementalBlockClient"
     ]
   },
   "mixins": [
-    "onesuperblock.mixins.json"
+    "elementalblock.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.2",
-    "superitems": ">=1.0.0",
     "fabricloader": ">=0.14.6",
     "fabric": "*",
-    "minecraft": "~1.19",
+    "minecraft": "~1.20.1",
     "java": ">=17"
   },
   "suggests": {

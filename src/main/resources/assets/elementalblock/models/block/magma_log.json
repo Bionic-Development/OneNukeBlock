@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "elementalblock:block/magma_log_top",
+    "side": "elementalblock:block/magma_log"
+  }
+}
