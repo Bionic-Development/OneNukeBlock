@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.takacick.emeraldmoney.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "EntityMixin",
+    "ItemEntityMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "VillagerEntityMixin"
+  ],
+  "client": [
+    "AbstractClientPlayerEntityMixin",
+    "BuiltinModelItemRendererMixin",
+    "HeldItemFeatureRendererMixin",
+    "HeldItemRendererMixin",
+    "ItemRendererMixin",
+    "MinecraftClientMixin",
+    "PlayerEntityModelMixin",
+    "PlayerEntityRendererMixin",
+    "VillagerResemblingModelMixin",
+    "WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,38 @@
+{
+	"parent": "builtin/entity",
+	"texture_size": [64, 32],
+	"textures": {
+		"particle": "item/emerald"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [-5.5, -7.75, -6]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -1, 0]
+		},
+		"firstperson_righthand": {
+			"translation": [-9, -8, 0]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, -6.75, 0]
+		},
+		"ground": {
+			"translation": [0, 3.5, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"gui": {
+			"rotation": [30, 45, 0],
+			"translation": [0, -1.75, 0],
+			"scale": [1.025, 1.025, 1.025]
+		},
+		"head": {
+			"translation": [0, 12.75, 0]
+		},
+		"fixed": {
+			"translation": [0, -2.25, 0]
+		}
+	}
+}

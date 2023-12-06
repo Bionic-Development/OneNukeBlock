@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "oneelementalblock",
+  "id": "emeraldmoney",
   "version": "${version}",
-  "name": "OneElementalBlock Mod",
-  "description": "OneElementalBlock",
+  "name": "EmeraldMoney Mod",
+  "description": "EmeraldMoney",
   "authors": [
     "Takacick"
   ],
@@ -12,22 +12,22 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/elementalblock/icon.png",
+  "icon": "assets/emeraldmoney/icon.png",
   "environment": "*",
-  "accessWidener": "elementalblock.accesswidener",
+  "accessWidener": "emeraldmoney.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.elementalblock.OneElementalBlock"
+      "de.takacick.emeraldmoney.EmeraldMoney"
     ],
     "client": [
-      "de.takacick.elementalblock.OneElementalBlockClient"
+      "de.takacick.emeraldmoney.EmeraldMoneyClient"
     ]
   },
   "mixins": [
-    "elementalblock.mixins.json"
+    "emeraldmoney.mixins.json"
   ],
   "depends": {
-    "bionicutils": ">=1.1.2",
+    "bionicutils": ">=1.1.3",
     "fabricloader": ">=0.14.6",
     "fabric": "*",
     "minecraft": "~1.20.1",

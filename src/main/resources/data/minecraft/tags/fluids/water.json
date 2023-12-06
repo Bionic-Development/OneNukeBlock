@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "elementalblock:water",
-    "elementalblock:flowing_water",
-    "elementalblock:tsunamic_water",
-    "elementalblock:tsunamic_flowing_water"
-  ]
-}
