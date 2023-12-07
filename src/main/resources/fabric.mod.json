@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "emeraldmoney",
+  "id": "upgradebody",
   "version": "${version}",
-  "name": "EmeraldMoney Mod",
-  "description": "EmeraldMoney",
+  "name": "UpgradeBody Mod",
+  "description": "UpgradeBody",
   "authors": [
     "Takacick"
   ],
@@ -12,19 +12,19 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/emeraldmoney/icon.png",
+  "icon": "assets/upgradebody/icon.png",
   "environment": "*",
-  "accessWidener": "emeraldmoney.accesswidener",
+  "accessWidener": "upgradebody.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.emeraldmoney.EmeraldMoney"
+      "de.takacick.upgradebody.UpgradeBody"
     ],
     "client": [
-      "de.takacick.emeraldmoney.EmeraldMoneyClient"
+      "de.takacick.upgradebody.UpgradeBodyClient"
     ]
   },
   "mixins": [
-    "emeraldmoney.mixins.json"
+    "upgradebody.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.3",

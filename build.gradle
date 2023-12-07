@@ -22,7 +22,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/emeraldmoney.accesswidener")
+    accessWidenerPath = file("src/main/resources/upgradebody.accesswidener")
 }
 
 dependencies {

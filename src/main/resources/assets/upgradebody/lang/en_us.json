@@ -1,0 +1,22 @@
+{
+  "item.upgradebody.emerald_shop_portal": "Emerald Shop Portal",
+  "item.upgradebody.villager_nose": "Villager Nose",
+  "item.upgradebody.emerald_wallet": "Emerald Wallet",
+  "item.upgradebody.emerald_gauntlet": "Emerald Gauntlet",
+  "item.upgradebody.villager_robe": "Villager Robe",
+  "item.upgradebody.villager_driller": "Villager Driller",
+  "item.upgradebody.emerald_health_jar": "Emerald Health Jar",
+  "item.upgradebody.pillager_cannon": "Pillager Cannon",
+  "item.upgradebody.creepager_pet": "Creepager Pet",
+  "item.upgradebody.emerald_totem": "Emerald Totem",
+  "item.upgradebody.cursed_emerald_staff": "Cursed Emerald Staff",
+  "entity.upgradebody.emerald_shop_portal": "Emerald Shop Portal",
+  "entity.upgradebody.shop_item": "Emerald Shop Item",
+  "entity.upgradebody.villager_nose": "Villager Nose",
+  "entity.upgradebody.block_break": "Block Break",
+  "entity.upgradebody.pillager": "Pillager",
+  "entity.upgradebody.creepager": "Creepager",
+  "entity.upgradebody.falling_block": "Falling Block",
+  "entity.upgradebody.villager_spike": "Villager Spike",
+  "itemGroup.upgradebody": "EmeraldMoney Items"
+}
