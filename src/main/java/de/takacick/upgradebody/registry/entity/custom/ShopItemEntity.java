@@ -2,6 +2,7 @@ package de.takacick.upgradebody.registry.entity.custom;
 
 import de.takacick.upgradebody.UpgradeBody;
 import de.takacick.upgradebody.registry.EntityRegistry;
+import de.takacick.utils.BionicUtils;
 import de.takacick.utils.data.BionicDataTracker;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -12,6 +13,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -88,7 +93,18 @@ public class ShopItemEntity extends Entity {
 
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
+        if (player.experienceLevel < getPrice()) {
+            return ActionResult.CONSUME;
+        }
 
+        getWorld().playSound(getX(), getY() + calculateBoundingBox().getYLength() / 2, getZ(), SoundEvents.ENTITY_PLAYER_LEVELUP, SoundCategory.NEUTRAL, 0.4f, 1, true);
+        if (!getWorld().isClient) {
+
+            BionicUtils.sendEntityStatus((ServerWorld) getWorld(), this, UpgradeBody.IDENTIFIER, 2);
+
+            player.getInventory().offerOrDrop(getItemStack().copy());
+            ((ServerPlayerEntity) player).setExperienceLevel(player.experienceLevel - getPrice());
+        }
         return ActionResult.SUCCESS;
     }
 

@@ -1,5 +1,6 @@
 package de.takacick.upgradebody.registry.entity.custom.renderer;
 
+import de.takacick.upgradebody.UpgradeBodyClient;
 import de.takacick.upgradebody.registry.entity.custom.ShopItemEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -12,6 +13,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
@@ -46,7 +48,8 @@ public class ShopItemEntityRenderer extends EntityRenderer<ShopItemEntity> {
 
         DecimalFormat format = new DecimalFormat("#,###");
 
-        renderLabelIfPresent(shopItemEntity, Text.literal(format.format(shopItemEntity.getPrice())).append(" \uE003"), matrixStack, vertexConsumerProvider, light);
+        renderLabelIfPresent(shopItemEntity, Text.literal(format.format(shopItemEntity.getPrice()))
+                .append(Text.literal(" Level").setStyle(Style.EMPTY.withColor(UpgradeBodyClient.getColor()))), matrixStack, vertexConsumerProvider, light);
 
         matrixStack.translate(0, 0.25, 0);
         renderLabelIfPresent(shopItemEntity, shopItemEntity.getItemStack().getName(), matrixStack, vertexConsumerProvider, light);

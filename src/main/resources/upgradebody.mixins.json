@@ -4,14 +4,29 @@
   "package": "de.takacick.upgradebody.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "DamageSourcesMixin",
     "EntityMixin",
+    "ExperienceOrbEntityMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "PortalEntityMixin",
+    "ServerPlayerEntityMixin",
+    "warden.EntityPositionSourceAccessor",
+    "warden.VibrationListenerMixin",
+    "warden.WardenEntityMixin"
   ],
   "client": [
+    "AbstractPlayerEntityMixin",
+    "BuiltinModelItemRendererMixin",
+    "ClientPlayerEntityMixin",
+    "EntityRenderDispatcherMixin",
+    "HeldItemRendererMixin",
+    "InGameHudAccessor",
+    "LivingEntityRendererMixin",
     "MinecraftClientMixin",
     "PlayerEntityModelMixin",
-    "PlayerEntityRendererMixin"
+    "PlayerEntityRendererMixin",
+    "TridentRiptideFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

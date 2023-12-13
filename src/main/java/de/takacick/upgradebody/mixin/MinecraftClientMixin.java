@@ -1,6 +1,7 @@
 package de.takacick.upgradebody.mixin;
 
-import de.takacick.upgradebody.registry.ItemRegistry;
+import de.takacick.upgradebody.access.PlayerProperties;
+import de.takacick.upgradebody.registry.bodypart.BodyParts;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.jetbrains.annotations.Nullable;
@@ -20,15 +21,27 @@ public class MinecraftClientMixin {
 
     @Inject(method = "doAttack", at = @At("HEAD"), cancellable = true)
     private void doAttack(CallbackInfoReturnable<Boolean> info) {
-        if (player != null && player.getMainHandStack().isOf(ItemRegistry.EMERALD_SHOP_PORTAL)) {
-            info.setReturnValue(false);
+        if (this.player instanceof PlayerProperties playerProperties
+                && playerProperties.isUpgrading()) {
+            if (!playerProperties.getBodyPartManager().canUseArms()) {
+                info.setReturnValue(false);
+            } else if (playerProperties.hasBodyPart(BodyParts.CYBER_CHAINSAWS)
+                    && this.player.getMainHandStack().isEmpty()) {
+                playerProperties.setCyberChainsawTicks(4);
+            }
         }
     }
 
     @Inject(method = "handleBlockBreaking", at = @At("HEAD"), cancellable = true)
     private void handleBlockBreaking(boolean bl, CallbackInfo info) {
-        if (player != null && player.getMainHandStack().isOf(ItemRegistry.EMERALD_SHOP_PORTAL)) {
-            info.cancel();
+        if (this.player instanceof PlayerProperties playerProperties
+                && playerProperties.isUpgrading()) {
+            if (!playerProperties.getBodyPartManager().canUseArms()) {
+                info.cancel();
+            } else if (playerProperties.hasBodyPart(BodyParts.CYBER_CHAINSAWS)
+                    && this.player.getMainHandStack().isEmpty() && bl) {
+                playerProperties.setCyberChainsawTicks(4);
+            }
         }
     }
 }
