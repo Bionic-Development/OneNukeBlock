@@ -1,0 +1,21 @@
+{
+  "rat_hurt": {
+    "sounds": [
+      "tinyhouse:rat_hurt_1",
+      "tinyhouse:rat_hurt_2",
+      "tinyhouse:rat_hurt_3"
+    ]
+  },
+  "rat_death": {
+    "sounds": [
+      "tinyhouse:rat_death_1",
+      "tinyhouse:rat_death_2",
+      "tinyhouse:rat_death_3"
+    ]
+  },
+  "ice_freeze": {
+    "sounds": [
+      "tinyhouse:ice_freeze"
+    ]
+  }
+}

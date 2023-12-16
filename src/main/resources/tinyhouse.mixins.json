@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.takacick.tinyhouse.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "EntityMixin",
+    "FallingBlockEntityMixin",
+    "LivingEntityMixin",
+    "MobEntityMixin",
+    "NameTagItemMixin",
+    "PlayerEntityMixin",
+    "ServerWorldMixin"
+  ],
+  "client": [
+    "BipedEntityRendererMixin",
+    "ClientEntityMixin",
+    "ClientWorldMixin",
+    "FallingBlockEntityRendererMixin",
+    "GameRendererMixin",
+    "InGameOverlayRendererMixin",
+    "ItemEntityRendererMixin",
+    "ItemRendererMixin",
+    "LivingEntityRendererMixin",
+    "ModelPartAccessor",
+    "PlayerEntityRendererMixin",
+    "WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

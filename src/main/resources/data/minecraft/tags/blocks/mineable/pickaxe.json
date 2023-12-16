@@ -1,7 +1,8 @@
 {
   "values": [
+    "tinyhouse:freezing_plate_trap",
+    "tinyhouse:burning_plate_trap",
     "tinyhouse:spinning_peepee_choppa",
-    "tinyhouse:block_magnet",
     "tinyhouse:giant_crusher_trap"
   ]
 }

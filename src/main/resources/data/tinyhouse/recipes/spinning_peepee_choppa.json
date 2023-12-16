@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ACA",
+    "CRC",
+    "ACA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:diamond_axe"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "C": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "item": "tinyhouse:spinning_peepee_choppa"
+  }
+}
