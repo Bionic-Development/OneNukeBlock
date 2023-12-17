@@ -152,7 +152,7 @@ public class BurningPlateTrap extends WeightedPressurePlateBlock {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
 
-        tooltip.add(Text.of("§cMetls §eanything at a single step!"));
+        tooltip.add(Text.of("§cMelts §eanything at a single step!"));
 
         super.appendTooltip(stack, world, tooltip, options);
     }
