@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "raidbase:block/glitchy_quicksand"
+      },
+      {
+        "model": "raidbase:block/glitchy_quicksand",
+        "y": 90
+      },
+      {
+        "model": "raidbase:block/glitchy_quicksand",
+        "y": 180
+      },
+      {
+        "model": "raidbase:block/glitchy_quicksand",
+        "y": 270
+      }
+    ]
+  }
+}

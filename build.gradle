@@ -22,7 +22,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/tinyhouse.accesswidener")
+    accessWidenerPath = file("src/main/resources/raidbase.accesswidener")
 }
 
 dependencies {
@@ -34,6 +34,7 @@ dependencies {
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modApi "de.takacick:bionicutils:1.1.3+1.20.1"
+    modImplementation "dev.architectury:architectury:9.1.12-fabric"
 }
 
 processResources {

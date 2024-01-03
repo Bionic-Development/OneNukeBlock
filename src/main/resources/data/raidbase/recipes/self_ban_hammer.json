@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    " S ",
+    "TCR"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    },
+    "C": {
+      "item": "minecraft:command_block"
+    },
+    "R": {
+      "item": "minecraft:respawn_anchor"
+    }
+  },
+  "result": {
+    "item": "raidbase:self_ban_hammer"
+  }
+}

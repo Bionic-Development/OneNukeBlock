@@ -1,0 +1,6 @@
+accessWidener	v1	named
+
+accessible method net/minecraft/client/render/entity/model/AnimalModel getBodyParts ()Ljava/lang/Iterable;
+accessible method net/minecraft/client/render/entity/model/AnimalModel getHeadParts ()Ljava/lang/Iterable;
+accessible field net/minecraft/client/render/entity/model/QuadrupedEntityModel head Lnet/minecraft/client/model/ModelPart;
+accessible method net/minecraft/entity/mob/MobEntity getAmbientSound ()Lnet/minecraft/sound/SoundEvent;

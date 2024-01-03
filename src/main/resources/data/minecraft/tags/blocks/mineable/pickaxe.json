@@ -1,8 +1,14 @@
 {
   "values": [
-    "tinyhouse:freezing_plate_trap",
-    "tinyhouse:burning_plate_trap",
-    "tinyhouse:spinning_peepee_choppa",
-    "tinyhouse:giant_crusher_trap"
+    "raidbase:pie_launcher",
+    "raidbase:beacon_death_laser",
+    "raidbase:copper_hopper",
+    "raidbase:exposed_copper_hopper",
+    "raidbase:weathered_copper_hopper",
+    "raidbase:oxidized_copper_hopper",
+    "raidbase:waxed_copper_hopper",
+    "raidbase:waxed_exposed_copper_hopper",
+    "raidbase:waxed_weathered_copper_hopper",
+    "raidbase:waxed_oxidized_copper_hopper"
   ]
 }

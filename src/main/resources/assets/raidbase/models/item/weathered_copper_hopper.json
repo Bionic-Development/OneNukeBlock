@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "raidbase:item/weathered_copper_hopper"
+  }
+}

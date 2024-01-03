@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "raidbase:block/weathered_copper_hopper"
+    },
+    "facing=east": {
+      "model": "raidbase:block/weathered_copper_hopper_side",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "raidbase:block/weathered_copper_hopper_side"
+    },
+    "facing=south": {
+      "model": "raidbase:block/weathered_copper_hopper_side",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "raidbase:block/weathered_copper_hopper_side",
+      "y": 270
+    }
+  }
+}
