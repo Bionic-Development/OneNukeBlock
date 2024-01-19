@@ -1,0 +1,14 @@
+accessWidener	v1	named
+
+accessible method net/minecraft/client/render/entity/model/AnimalModel getBodyParts ()Ljava/lang/Iterable;
+accessible method net/minecraft/client/render/entity/model/AnimalModel getHeadParts ()Ljava/lang/Iterable;
+accessible field net/minecraft/client/render/entity/model/QuadrupedEntityModel head Lnet/minecraft/client/model/ModelPart;
+accessible method net/minecraft/entity/mob/MobEntity getAmbientSound ()Lnet/minecraft/sound/SoundEvent;
+accessible method net/minecraft/entity/projectile/PersistentProjectileEntity <init> (Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;Lnet/minecraft/item/ItemStack;)V
+accessible class net/minecraft/client/render/RenderLayer$MultiPhaseParameters
+accessible class net/minecraft/client/render/RenderPhase$Texture
+accessible class net/minecraft/client/render/RenderPhase$ShaderProgram
+accessible class net/minecraft/client/render/RenderPhase$TextureBase
+accessible class net/minecraft/client/render/RenderLayer$OutlineMode
+accessible class net/minecraft/client/render/RenderPhase$OffsetTexturing
+accessible class net/minecraft/client/render/RenderPhase$Transparency

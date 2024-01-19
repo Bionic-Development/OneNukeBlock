@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.4-SNAPSHOT'
+    id 'fabric-loom' version '1.5-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -22,7 +22,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/raidbase.accesswidener")
+    accessWidenerPath = file("src/main/resources/illegalwars.accesswidener")
 }
 
 dependencies {
@@ -33,8 +33,7 @@ dependencies {
 
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modApi "de.takacick:bionicutils:1.1.3+1.20.1"
-    modImplementation "dev.architectury:architectury:9.1.12-fabric"
+    modImplementation "de.takacick:bionicutils:1.1.3+1.20.4"
 }
 
 processResources {

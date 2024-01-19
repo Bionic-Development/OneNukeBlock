@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "raidbase",
+  "id": "illegalwars",
   "version": "${version}",
-  "name": "RaidBase Mod",
-  "description": "RaidBase",
+  "name": "IllegalWars Mod",
+  "description": "IllegalWars",
   "authors": [
     "Takacick"
   ],
@@ -12,25 +12,25 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/raidbase/icon.png",
+  "icon": "assets/illegalwars/icon.png",
   "environment": "*",
-  "accessWidener": "raidbase.accesswidener",
+  "accessWidener": "illegalwars.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.raidbase.RaidBase"
+      "de.takacick.illegalwars.IllegalWars"
     ],
     "client": [
-      "de.takacick.raidbase.RaidBaseClient"
+      "de.takacick.illegalwars.IllegalWarsClient"
     ]
   },
   "mixins": [
-    "raidbase.mixins.json"
+    "illegalwars.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.3",
-    "fabricloader": ">=0.14.6",
+    "fabricloader": ">=0.15.6",
     "fabric": "*",
-    "minecraft": "~1.20.1",
+    "minecraft": "~1.20.4",
     "java": ">=17"
   },
   "suggests": {
