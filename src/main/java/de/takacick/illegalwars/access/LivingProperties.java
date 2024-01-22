@@ -2,8 +2,12 @@ package de.takacick.illegalwars.access;
 
 public interface LivingProperties {
 
-    void setPieTicks(int pieTicks);
+    void setPoopTicks(int poopTicks);
 
-    boolean hasPie();
+    boolean hasPoop();
+
+    void setSludgeStrength(float strength);
+
+    float getSludgeStrength(float tickDelta);
 
 }

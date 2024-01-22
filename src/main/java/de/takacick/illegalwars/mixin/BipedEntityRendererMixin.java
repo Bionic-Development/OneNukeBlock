@@ -1,6 +1,6 @@
 package de.takacick.illegalwars.mixin;
 
-import de.takacick.illegalwars.client.renderer.PieFeatureRenderer;
+import de.takacick.illegalwars.client.renderer.PoopFeatureRenderer;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
@@ -21,6 +21,6 @@ public abstract class BipedEntityRendererMixin<T extends MobEntity, M extends Bi
 
     @Inject(method = "<init>(Lnet/minecraft/client/render/entity/EntityRendererFactory$Context;Lnet/minecraft/client/render/entity/model/BipedEntityModel;FFFF)V", at = @At("TAIL"))
     private void init(EntityRendererFactory.Context ctx, BipedEntityModel model, float shadowRadius, float scaleX, float scaleY, float scaleZ, CallbackInfo ci) {
-        this.addFeature(new PieFeatureRenderer<>(this));
+        this.addFeature(new PoopFeatureRenderer<>(this));
     }
 }

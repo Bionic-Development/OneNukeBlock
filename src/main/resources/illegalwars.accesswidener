@@ -12,3 +12,15 @@ accessible class net/minecraft/client/render/RenderPhase$TextureBase
 accessible class net/minecraft/client/render/RenderLayer$OutlineMode
 accessible class net/minecraft/client/render/RenderPhase$OffsetTexturing
 accessible class net/minecraft/client/render/RenderPhase$Transparency
+accessible field net/minecraft/block/spawner/TrialSpawnerData players Ljava/util/Set;
+accessible field net/minecraft/block/spawner/TrialSpawnerData cooldownEnd J
+accessible field net/minecraft/block/spawner/TrialSpawnerData totalSpawnedMobs I
+accessible field net/minecraft/block/spawner/TrialSpawnerData nextMobSpawnsAt J
+accessible field net/minecraft/block/spawner/TrialSpawnerData spawnData Ljava/util/Optional;
+accessible field net/minecraft/block/spawner/TrialSpawnerData spawnDataPool Lnet/minecraft/util/collection/DataPool;
+accessible field net/minecraft/block/spawner/TrialSpawnerData spawnedMobsAlive Ljava/util/Set;
+accessible field net/minecraft/block/spawner/TrialSpawnerData rewardLootTable Ljava/util/Optional;
+accessible method net/minecraft/block/spawner/TrialSpawnerData getSpawnData (Lnet/minecraft/block/spawner/TrialSpawnerLogic;Lnet/minecraft/util/math/random/Random;)Lnet/minecraft/block/spawner/MobSpawnerEntry;
+accessible field net/minecraft/block/spawner/TrialSpawnerData lastDisplayEntityRotation D
+accessible field net/minecraft/block/spawner/TrialSpawnerData displayEntityRotation D
+accessible method net/minecraft/util/collection/DataPool <init> (Ljava/util/List;)V

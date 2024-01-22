@@ -11,7 +11,11 @@ import org.joml.Vector3f;
 import java.util.Locale;
 
 public record ColoredParticleEffect(ParticleType<ColoredParticleEffect> particleType,
-                                    Vector3f color) implements ParticleEffect {
+                                    Vector3f color, int owner) implements ParticleEffect {
+
+    public ColoredParticleEffect(ParticleType<ColoredParticleEffect> particleType, Vector3f color) {
+        this(particleType, color, -1);
+    }
 
     public static final Factory<ColoredParticleEffect> FACTORY = new Factory<>() {
         @Override
@@ -22,12 +26,14 @@ public record ColoredParticleEffect(ParticleType<ColoredParticleEffect> particle
             float g = stringReader.readFloat();
             stringReader.expect(' ');
             float b = stringReader.readFloat();
-            return new ColoredParticleEffect(particleType, new Vector3f(r, g, b));
+            stringReader.expect(' ');
+            int owner = stringReader.readInt();
+            return new ColoredParticleEffect(particleType, new Vector3f(r, g, b), owner);
         }
 
         @Override
         public ColoredParticleEffect read(ParticleType<ColoredParticleEffect> particleType, PacketByteBuf packetByteBuf) {
-            return new ColoredParticleEffect(particleType, new Vector3f(packetByteBuf.readFloat(), packetByteBuf.readFloat(), packetByteBuf.readFloat()));
+            return new ColoredParticleEffect(particleType, new Vector3f(packetByteBuf.readFloat(), packetByteBuf.readFloat(), packetByteBuf.readFloat()), packetByteBuf.readInt());
         }
     };
 
@@ -40,6 +46,7 @@ public record ColoredParticleEffect(ParticleType<ColoredParticleEffect> particle
         buf.writeFloat(this.color.x());
         buf.writeFloat(this.color.y());
         buf.writeFloat(this.color.z());
+        buf.writeInt(this.owner);
     }
 
     @Override

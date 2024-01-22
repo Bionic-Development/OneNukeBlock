@@ -1,6 +1,6 @@
 package de.takacick.illegalwars.mixin;
 
-import de.takacick.illegalwars.client.renderer.PieFeatureRenderer;
+import de.takacick.illegalwars.client.renderer.PoopFeatureRenderer;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
@@ -20,6 +20,6 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void init(EntityRendererFactory.Context ctx, boolean slim, CallbackInfo info) {
-        this.addFeature(new PieFeatureRenderer<>(this));
+        this.addFeature(new PoopFeatureRenderer<>(this));
     }
 }

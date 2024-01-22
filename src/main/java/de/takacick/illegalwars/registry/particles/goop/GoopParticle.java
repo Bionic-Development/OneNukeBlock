@@ -1,6 +1,7 @@
 package de.takacick.illegalwars.registry.particles.goop;
 
 
+import de.takacick.illegalwars.IllegalWarsClient;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.particle.ParticleTextureSheet;
@@ -36,6 +37,9 @@ public class GoopParticle extends SurfaceAlignedParticle {
     @Override
     public void tick() {
         super.tick();
+        if (this.world.getRandom().nextDouble() <= 0.05 && this.color.equals(Vec3d.unpackRgb(0x462A14).toVector3f())) {
+            IllegalWarsClient.addPotion(new Vec3d(x + 0.1 * this.random.nextDouble(), y, z + 0.1 * this.random.nextDouble()), 0x462A14, 1);
+        }
 
         if (age <= appearTicks)
             scale = MathHelper.clampedLerp(0f, size, (float) age / appearTicks);

@@ -5,10 +5,11 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.MathHelper;
+import org.joml.Vector3f;
 
 public class DustParticle extends AnimatedParticle {
 
-    DustParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, SpriteProvider spriteProvider) {
+    DustParticle(ClientWorld world, Vector3f color, double x, double y, double z, double velocityX, double velocityY, double velocityZ, SpriteProvider spriteProvider) {
         super(world, x, y, z, spriteProvider, 1.25f);
 
         this.velocityX = velocityX * 0.5;
@@ -23,6 +24,7 @@ public class DustParticle extends AnimatedParticle {
         this.setSpriteForAge(spriteProvider);
         this.angle = (float) Math.random() * ((float) Math.PI * 2);
         this.prevAngle = this.angle;
+        setColor(color.x(), color.y(), color.z());
     }
 
     @Override
@@ -41,9 +43,7 @@ public class DustParticle extends AnimatedParticle {
 
         @Override
         public Particle createParticle(ColoredParticleEffect parameters, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
-            DustParticle dustParticle = new DustParticle(clientWorld, d, e, f, g, h, i, this.spriteProvider);
-            dustParticle.setColor(parameters.color().x(), parameters.color().y(), parameters.color().z());
-            return dustParticle;
+            return new DustParticle(clientWorld, parameters.color(), d, e, f, g, h, i, this.spriteProvider);
         }
     }
 }

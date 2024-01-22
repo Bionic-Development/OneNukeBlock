@@ -98,7 +98,7 @@ public class GoopDropParticle extends SpriteBillboardParticle {
         } else {
             quaternion = new Quaternionf(camera.getRotation());
             float i = MathHelper.lerp(tickDelta, this.prevAngle, this.angle);
-            quaternion.rotateY(i);
+            quaternion.rotateZ(i);
         }
         Vector3f vec3f = new Vector3f(-1.0f, -1.0f, 0.0f);
         vec3f.rotate(quaternion);

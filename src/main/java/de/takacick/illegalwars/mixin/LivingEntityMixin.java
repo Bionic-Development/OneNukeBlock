@@ -1,7 +1,10 @@
 package de.takacick.illegalwars.mixin;
 
 import de.takacick.illegalwars.IllegalWars;
+import de.takacick.illegalwars.IllegalWarsClient;
 import de.takacick.illegalwars.access.LivingProperties;
+import de.takacick.illegalwars.registry.ParticleRegistry;
+import de.takacick.illegalwars.registry.block.SludgeLiquidBlock;
 import de.takacick.utils.BionicUtils;
 import de.takacick.utils.data.BionicDataTracker;
 import net.minecraft.entity.Entity;
@@ -10,11 +13,16 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Implements;
 import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -23,8 +31,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Implements({@Interface(iface = LivingProperties.class, prefix = "illegalwars$")})
 public abstract class LivingEntityMixin extends Entity {
 
-    private static final TrackedData<Boolean> illegalwars$PIE = BionicDataTracker.registerData(new Identifier(IllegalWars.MOD_ID, "pie"), TrackedDataHandlerRegistry.BOOLEAN);
-    private int illegalwars$pieTicks = 0;
+    @Shadow
+    public abstract Random getRandom();
+
+    private static final TrackedData<Boolean> illegalwars$POOP = BionicDataTracker.registerData(new Identifier(IllegalWars.MOD_ID, "poop"), TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Float> illegalwars$SLUDGE = BionicDataTracker.registerData(new Identifier(IllegalWars.MOD_ID, "sludge"), TrackedDataHandlerRegistry.FLOAT);
+    private int illegalwars$poopTicks = 0;
+    private float illegalwars$sludge = 0;
+    private float illegalwars$prevSludge = 0;
 
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -32,17 +46,56 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "initDataTracker", at = @At("HEAD"))
     public void initDataTracker(CallbackInfo info) {
-        getDataTracker().startTracking(illegalwars$PIE, false);
+        getDataTracker().startTracking(illegalwars$POOP, false);
+        getDataTracker().startTracking(illegalwars$SLUDGE, 0f);
     }
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo info) {
         if (!getWorld().isClient) {
-            if (this.illegalwars$pieTicks > 0) {
-                illegalwars$setPieTicks(this.illegalwars$pieTicks - 1);
+            if (this.illegalwars$poopTicks > 0) {
+                illegalwars$setPoopTicks(this.illegalwars$poopTicks - 1);
 
-                if (!illegalwars$hasPie() && isPlayer()) {
-                    BionicUtils.sendEntityStatus(getWorld(), this, IllegalWars.IDENTIFIER, 7);
+                if (!illegalwars$hasPoop() && isPlayer()) {
+                    BionicUtils.sendEntityStatus(getWorld(), this, IllegalWars.IDENTIFIER, 4);
+                }
+            }
+        } else {
+            if (illegalwars$hasPoop() && getRandom().nextDouble() <= 0.25) {
+                IllegalWarsClient.addPotion(getPos().add(0, getHeight() / 2, 0), 0x462A14, 1);
+            }
+        }
+
+        this.illegalwars$prevSludge = this.illegalwars$sludge;
+        if (getFluidHeight(SludgeLiquidBlock.SLUDGE) > 0) {
+            this.illegalwars$sludge = MathHelper.clamp(this.illegalwars$sludge + 0.05f, 0f, 1f);
+        } else {
+            this.illegalwars$sludge = MathHelper.clamp(this.illegalwars$sludge - 0.01f, 0f, 1f);
+        }
+
+        if (!getWorld().isClient) {
+            illegalwars$setSludgeStrength(this.illegalwars$sludge);
+        } else {
+            float sludge = getDataTracker().get(illegalwars$SLUDGE);
+            if (Math.abs(this.illegalwars$sludge - sludge) > 0.1) {
+                this.illegalwars$sludge = sludge;
+            }
+
+            if (this.illegalwars$sludge > 0) {
+                double g = getX();
+                double j = getZ();
+
+                for (int i = 0; i < 1; ++i) {
+                    double h = getRandomBodyY();
+                    double d = random.nextGaussian() * 0.2;
+                    double e = random.nextDouble() * 0.3;
+                    double f = random.nextGaussian() * 0.2;
+
+                    getWorld().addParticle(ParticleRegistry.FALLING_SLUDGE,
+                            true, g + d, h + e, j + f, d * 0.1, e * 0.1, f * 0.1);
+                    if (getRandom().nextDouble() <= 0.2) {
+                        getWorld().playSound(g + d, h + e, j + f, SoundEvents.BLOCK_MUD_BREAK, SoundCategory.BLOCKS, 1f, 1f, true);
+                    }
                 }
             }
         }
@@ -50,22 +103,32 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
     public void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo info) {
-        if (this.illegalwars$pieTicks > 0) {
-            nbt.putInt("illegalwars$pieTicks", this.illegalwars$pieTicks);
+        if (this.illegalwars$poopTicks > 0) {
+            nbt.putInt("illegalwars$poopTicks", this.illegalwars$poopTicks);
         }
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo info) {
-        this.illegalwars$pieTicks = nbt.getInt("illegalwars$pieTicks");
+        this.illegalwars$poopTicks = nbt.getInt("illegalwars$poopTicks");
     }
 
-    public void illegalwars$setPieTicks(int pieTicks) {
-        this.illegalwars$pieTicks = pieTicks;
-        getDataTracker().set(illegalwars$PIE, pieTicks > 0);
+    public void illegalwars$setPoopTicks(int poopTicks) {
+        this.illegalwars$poopTicks = poopTicks;
+        getDataTracker().set(illegalwars$POOP, poopTicks > 0);
     }
 
-    public boolean illegalwars$hasPie() {
-        return getDataTracker().get(illegalwars$PIE);
+    public boolean illegalwars$hasPoop() {
+        return getDataTracker().get(illegalwars$POOP);
     }
+
+    public void illegalwars$setSludgeStrength(float strength) {
+        this.illegalwars$sludge = strength;
+        getDataTracker().set(illegalwars$SLUDGE, strength);
+    }
+
+    public float illegalwars$getSludgeStrength(float tickDelta) {
+        return MathHelper.lerp(tickDelta, this.illegalwars$prevSludge, this.illegalwars$sludge);
+    }
+
 }

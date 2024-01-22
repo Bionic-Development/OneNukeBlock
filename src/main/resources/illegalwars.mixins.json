@@ -4,13 +4,37 @@
   "package": "de.takacick.illegalwars.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AbstractPiglinEntityMixin",
+    "EntityMixin",
+    "LavaFluidMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin"
+    "MobEntityMixin",
+    "PiglinEntityMixin",
+    "PlayerEntityMixin",
+    "ServerPlayNetworkHandlerMixin",
+    "TrialSpawnerLogicMixin",
+    "warden.EntityPositionSourceAccessor",
+    "warden.RoarTaskMixin",
+    "warden.VibrationListenerMixin",
+    "warden.WardenEntityMixin"
   ],
   "client": [
+    "BackgroundRendererMixin",
     "BipedEntityRendererMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "HeldItemFeatureRendererMixin",
+    "InGameHudMixin",
+    "ItemRendererMixin",
+    "PiglinEntityModelMixin",
     "PlayerEntityRendererMixin",
-    "WorldRendererMixin"
+    "WorldRendererMixin",
+    "sludge.ArmorFeatureRendererMixin",
+    "sludge.CapeFeatureRendererMixin",
+    "sludge.FeatureRendererMixin",
+    "sludge.GameRendererMixin",
+    "sludge.LivingEntityRendererMixin",
+    "sludge.PlayerEntityRendererMixin",
+    "sludge.ShaderProgramMixin"
   ],
   "injectors": {
     "defaultRequire": 1

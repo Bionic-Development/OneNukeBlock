@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "illegalwars:block/command_block_pressure_plate"
+    },
+    "powered=true": {
+      "model": "illegalwars:block/command_block_pressure_plate_down"
+    }
+  }
+}
