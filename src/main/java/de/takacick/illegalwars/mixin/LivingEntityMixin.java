@@ -3,20 +3,25 @@ package de.takacick.illegalwars.mixin;
 import de.takacick.illegalwars.IllegalWars;
 import de.takacick.illegalwars.IllegalWarsClient;
 import de.takacick.illegalwars.access.LivingProperties;
+import de.takacick.illegalwars.access.PiglinProperties;
 import de.takacick.illegalwars.registry.ParticleRegistry;
 import de.takacick.illegalwars.registry.block.SludgeLiquidBlock;
+import de.takacick.illegalwars.registry.block.entity.PiglinGoldTurretBlockEntity;
 import de.takacick.utils.BionicUtils;
 import de.takacick.utils.data.BionicDataTracker;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.Flutterer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Implements;
@@ -33,6 +38,9 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Shadow
     public abstract Random getRandom();
+
+    @Shadow
+    protected abstract void updateLimbs(boolean posDelta);
 
     private static final TrackedData<Boolean> illegalwars$POOP = BionicDataTracker.registerData(new Identifier(IllegalWars.MOD_ID, "poop"), TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Float> illegalwars$SLUDGE = BionicDataTracker.registerData(new Identifier(IllegalWars.MOD_ID, "sludge"), TrackedDataHandlerRegistry.FLOAT);
@@ -99,6 +107,27 @@ public abstract class LivingEntityMixin extends Entity {
                 }
             }
         }
+
+        if (!getWorld().isClient) {
+            if(this instanceof PiglinProperties piglinProperties)
+            if (piglinProperties.isUsingPiglinGoldTurret()) {
+                if (!(getWorld().getBlockEntity(piglinProperties.getPiglinGoldTurret()) instanceof PiglinGoldTurretBlockEntity piglinGoldTurretBlockEntity
+                        && equals(piglinGoldTurretBlockEntity.getShooter())
+                        && piglinGoldTurretBlockEntity.getPos().isWithinDistance(getPos(), 2))) {
+                    if (getWorld().getBlockEntity(piglinProperties.getPiglinGoldTurret()) instanceof PiglinGoldTurretBlockEntity piglinGoldTurretBlockEntity) {
+                        if (equals(piglinGoldTurretBlockEntity.getShooter())) {
+                            piglinGoldTurretBlockEntity.setShooter(null);
+                            piglinProperties.setPiglinGoldTurret(null);
+                        } else if (piglinGoldTurretBlockEntity.getShooter() == null
+                                && piglinGoldTurretBlockEntity.getPos().isWithinDistance(getPos(), 2)) {
+                            piglinGoldTurretBlockEntity.setShooter((PiglinEntity) (Object) this);
+                        }
+                    } else {
+                        piglinProperties.setPiglinGoldTurret(null);
+                    }
+                }
+            }
+        }
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
@@ -111,6 +140,15 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo info) {
         this.illegalwars$poopTicks = nbt.getInt("illegalwars$poopTicks");
+    }
+
+    @Inject(method = "travel", at = @At("HEAD"), cancellable = true)
+    public void travel(Vec3d movementInput, CallbackInfo info) {
+        if (this instanceof PiglinProperties piglinProperties
+                && piglinProperties.isUsingPiglinGoldTurret()) {
+            this.updateLimbs(this instanceof Flutterer);
+            info.cancel();
+        }
     }
 
     public void illegalwars$setPoopTicks(int poopTicks) {

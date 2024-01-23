@@ -43,30 +43,6 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity
         getDataTracker().startTracking(illegalwars$BLOCK_POS, new BlockPos(0, -100, 0));
     }
 
-    @Inject(method = "mobTick", at = @At("HEAD"))
-    public void mobTick(CallbackInfo info) {
-        if (!getWorld().isClient) {
-            if (illegalwars$isUsingPiglinGoldTurret()) {
-                if (!(getWorld().getBlockEntity(illegalwars$getPiglinGoldTurret()) instanceof PiglinGoldTurretBlockEntity piglinGoldTurretBlockEntity
-                        && equals(piglinGoldTurretBlockEntity.getShooter())
-                        && piglinGoldTurretBlockEntity.getPos().isWithinDistance(getPos(), 2))) {
-                    if (getWorld().getBlockEntity(illegalwars$getPiglinGoldTurret()) instanceof PiglinGoldTurretBlockEntity piglinGoldTurretBlockEntity) {
-                        if (equals(piglinGoldTurretBlockEntity.getShooter())) {
-                            piglinGoldTurretBlockEntity.setShooter(null);
-                            illegalwars$setPiglinGoldTurret(null);
-                        } else if (piglinGoldTurretBlockEntity.getShooter() == null
-                                && piglinGoldTurretBlockEntity.getPos().isWithinDistance(getPos(), 2)) {
-                            piglinGoldTurretBlockEntity.setShooter((PiglinEntity) (Object) this);
-                        }
-                    } else {
-                        illegalwars$setPiglinGoldTurret(null);
-                    }
-                }
-            }
-        }
-    }
-
-
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
     public void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo info) {
         if (this.illegalwars$isUsingPiglinGoldTurret()) {
