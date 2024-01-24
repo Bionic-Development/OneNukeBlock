@@ -1,5 +1,6 @@
 package de.takacick.illegalwars.registry.block.entity;
 
+import de.takacick.illegalwars.access.PiglinProperties;
 import de.takacick.illegalwars.registry.EntityRegistry;
 import de.takacick.illegalwars.registry.block.PiglinGoldTurretBlock;
 import de.takacick.illegalwars.registry.entity.projectiles.GoldBlockEntity;
@@ -25,12 +26,13 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
-public class PiglinGoldTurretBlockEntity extends BlockEntity {
+public class PiglinGoldTurretBlockEntity extends BlockEntity implements Tameable {
 
     private UUID owner;
     private PiglinEntity shooter;
@@ -76,7 +78,11 @@ public class PiglinGoldTurretBlockEntity extends BlockEntity {
                                     && !((livingEntity.getUuid().equals(blockEntity.owner)
                                     || (livingEntity instanceof Tameable tameable && (blockEntity.owner != null && blockEntity.owner.equals(tameable.getOwnerUuid()))))
                                     && Math.abs(livingEntity.getPos().add(0, livingEntity.getHeight() * 0.4, 0).subtract(centerPos).normalize().getY()) < 0.95)
-                                    && blockEntity.shooter.canSee(livingEntity)),
+                                    && blockEntity.shooter.canSee(livingEntity)
+                                    && !(livingEntity instanceof PiglinProperties piglinProperties
+                                       && piglinProperties.isUsingPiglinGoldTurret()
+                                       && world.getBlockEntity(piglinProperties.getPiglinGoldTurret()) instanceof Tameable tameable
+                                       && tameable.getOwnerUuid() != null && tameable.getOwnerUuid().equals(blockEntity.owner))),
                     null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
                     new Box(pos).expand(12));
 
@@ -94,7 +100,7 @@ public class PiglinGoldTurretBlockEntity extends BlockEntity {
                     world.playSoundFromEntity(null, blockEntity.shooter, SoundEvents.ENTITY_PIGLIN_CELEBRATE, SoundCategory.HOSTILE, 1f, 1f);
 
                     GoldBlockEntity goldBlockEntity = new GoldBlockEntity(world, center.getX(), center.getY(), center.getZ(), blockEntity.shooter);
-                    setVelocity(goldBlockEntity, blockEntity.shooter, blockEntity.pitch - 5, blockEntity.yaw, 0, 2.5f, 1.5f);
+                    setVelocity(goldBlockEntity, blockEntity.shooter, blockEntity.pitch - 2, blockEntity.yaw, 0, 2.5f, 1.5f);
                     goldBlockEntity.setPosition(center.getX(), center.getY() - goldBlockEntity.getHeight() / 2f, center.getZ());
                     world.spawnEntity(goldBlockEntity);
                     blockEntity.charge = 0;
@@ -142,8 +148,6 @@ public class PiglinGoldTurretBlockEntity extends BlockEntity {
         float g = -MathHelper.sin((pitch + roll) * ((float) Math.PI / 180));
         float h = MathHelper.cos(yaw * ((float) Math.PI / 180)) * MathHelper.cos(pitch * ((float) Math.PI / 180));
         goldBlockEntity.setVelocity(f, g, h, speed, divergence);
-        Vec3d vec3d = shooter.getVelocity();
-        goldBlockEntity.setVelocity(goldBlockEntity.getVelocity().add(vec3d.x, vec3d.y, vec3d.z));
         goldBlockEntity.setOwner(shooter);
     }
 
@@ -251,8 +255,15 @@ public class PiglinGoldTurretBlockEntity extends BlockEntity {
         this.owner = owner;
     }
 
-    public UUID getOwner() {
-        return owner;
+    @Nullable
+    @Override
+    public UUID getOwnerUuid() {
+        return this.owner;
+    }
+
+    @Override
+    public EntityView method_48926() {
+        return getWorld();
     }
 
     public boolean lookAt(Vec3d start, Vec3d target) {
