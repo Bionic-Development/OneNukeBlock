@@ -61,9 +61,9 @@ public abstract class ItemRendererMixin {
                 this.illegalwars$piglinGoldTurret = new PiglinGoldTurretBlockEntity(BlockPos.ORIGIN, ItemRegistry.PIGLIN_GOLD_TURRET.getDefaultState());
             }
             this.client.getBlockEntityRenderDispatcher().renderEntity(this.illegalwars$piglinGoldTurret, matrices, vertexConsumers, light, overlay);
-        } else if (stack.isOf(ItemRegistry.BASE_WARS_MONEY_WHEEl_ITEM)) {
+        } else if (stack.isOf(ItemRegistry.BASE_WARS_MONEY_WHEEL_ITEM)) {
             if (this.illegalwars$baseWarsMoneyWheel == null) {
-                this.illegalwars$baseWarsMoneyWheel = new BaseWarsMoneyWheelBlockEntity(BlockPos.ORIGIN, ItemRegistry.BASE_WARS_MONEY_WHEEl.getDefaultState());
+                this.illegalwars$baseWarsMoneyWheel = new BaseWarsMoneyWheelBlockEntity(BlockPos.ORIGIN, ItemRegistry.BASE_WARS_MONEY_WHEEL.getDefaultState());
                 this.illegalwars$baseWarsMoneyWheel.setOwner(true);
                 this.illegalwars$baseWarsMoneyWheel.gui = true;
             }

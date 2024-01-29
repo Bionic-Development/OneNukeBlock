@@ -14,8 +14,6 @@ import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.ActionResult;
@@ -67,7 +65,7 @@ public class BaseWarsMoneyWheelBlock extends BlockWithEntity {
                 pos = baseWarsMoneyWheelBlockEntity.getOwnerBlockPos();
                 if (player != null && !player.isCreative()) {
                     ItemEntity itemEntity = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
-                            ItemRegistry.BASE_WARS_MONEY_WHEEl_ITEM.getDefaultStack());
+                            ItemRegistry.BASE_WARS_MONEY_WHEEL_ITEM.getDefaultStack());
                     world.spawnEntity(itemEntity);
                 }
             }

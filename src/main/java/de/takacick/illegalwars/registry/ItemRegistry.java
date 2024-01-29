@@ -25,8 +25,8 @@ public class ItemRegistry {
     public static final FlowableFluid FLOWING_SLUDGE_LIQUID = new SludgeLiquid.Flowing();
     public static final FluidBlock SLUDGE_LIQUID_BLOCK = new SludgeLiquidBlock(STILL_SLUDGE_LIQUID, AbstractBlock.Settings.create().mapColor(MapColor.PALE_GREEN).replaceable().noCollision().strength(100.0f).pistonBehavior(PistonBehavior.DESTROY).dropsNothing().liquid().sounds(BlockSoundGroup.INTENTIONALLY_EMPTY));
 
-    public static final Block BASE_WARS_MONEY_WHEEl = new BaseWarsMoneyWheelBlock(AbstractBlock.Settings.create().requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL).nonOpaque().dynamicBounds());
-    public static final Item BASE_WARS_MONEY_WHEEl_ITEM = new BaseWarsMoneyWheel(BASE_WARS_MONEY_WHEEl, new Item.Settings());
+    public static final Block BASE_WARS_MONEY_WHEEL = new BaseWarsMoneyWheelBlock(AbstractBlock.Settings.create().requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL).nonOpaque().dynamicBounds());
+    public static final Item BASE_WARS_MONEY_WHEEL_ITEM = new BaseWarsMoneyWheel(BASE_WARS_MONEY_WHEEL, new Item.Settings());
     public static final Block MONEY_BLOCK = new MoneyBlock(AbstractBlock.Settings.copy(Blocks.ACACIA_LEAVES).nonOpaque().solidBlock((state, world, pos) -> false).blockVision((state, world, pos) -> false).suffocates((state, world, pos) -> true));
     public static final Item MONEY_BLOCK_ITEM = new BlockItem(MONEY_BLOCK, new Item.Settings());
     public static final Block POOP_LAUNCHER = new PoopLauncherBlock(AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).instrument(Instrument.BASEDRUM).requiresTool().strength(3.5f));
@@ -51,8 +51,8 @@ public class ItemRegistry {
         Registry.register(Registries.FLUID, new Identifier(IllegalWars.MOD_ID, "still_sludge_liquid"), STILL_SLUDGE_LIQUID);
         Registry.register(Registries.FLUID, new Identifier(IllegalWars.MOD_ID, "flowing_sludge_liquid"), FLOWING_SLUDGE_LIQUID);
 
-        Registry.register(Registries.BLOCK, new Identifier(IllegalWars.MOD_ID, "base_wars_money_wheel"), BASE_WARS_MONEY_WHEEl);
-        Registry.register(Registries.ITEM, new Identifier(IllegalWars.MOD_ID, "base_wars_money_wheel"), BASE_WARS_MONEY_WHEEl_ITEM);
+        Registry.register(Registries.BLOCK, new Identifier(IllegalWars.MOD_ID, "base_wars_money_wheel"), BASE_WARS_MONEY_WHEEL);
+        Registry.register(Registries.ITEM, new Identifier(IllegalWars.MOD_ID, "base_wars_money_wheel"), BASE_WARS_MONEY_WHEEL_ITEM);
         Registry.register(Registries.BLOCK, new Identifier(IllegalWars.MOD_ID, "money_block"), MONEY_BLOCK);
         Registry.register(Registries.ITEM, new Identifier(IllegalWars.MOD_ID, "money_block"), MONEY_BLOCK_ITEM);
         Registry.register(Registries.BLOCK, new Identifier(IllegalWars.MOD_ID, "poop_launcher"), POOP_LAUNCHER);

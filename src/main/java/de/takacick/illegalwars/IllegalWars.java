@@ -33,9 +33,9 @@ public class IllegalWars implements ModInitializer {
 
         Registry.register(Registries.ITEM_GROUP, ITEM_GROUP, FabricItemGroup.builder()
                 .displayName(Text.translatable("itemGroup.illegalwars"))
-                .icon(ItemRegistry.BASE_WARS_MONEY_WHEEl_ITEM::getDefaultStack)
+                .icon(ItemRegistry.BASE_WARS_MONEY_WHEEL_ITEM::getDefaultStack)
                 .entries((context, entries) -> {
-                    entries.add(ItemRegistry.BASE_WARS_MONEY_WHEEl_ITEM);
+                    entries.add(ItemRegistry.BASE_WARS_MONEY_WHEEL_ITEM);
                     entries.add(ItemRegistry.MONEY_BLOCK_ITEM);
                     entries.add(ItemRegistry.POOP_LAUNCHER_ITEM);
                     entries.add(ItemRegistry.SLUDGE_BUCKET);

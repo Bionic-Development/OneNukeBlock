@@ -83,7 +83,7 @@ public class EntityRegistry {
     public static BlockEntityType<BaseWarsMoneyWheelBlockEntity> BASE_WARS_MONEY_WHEEL = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(IllegalWars.MOD_ID, "base_wars_money_wheel"),
-            FabricBlockEntityTypeBuilder.create(BaseWarsMoneyWheelBlockEntity::new, ItemRegistry.BASE_WARS_MONEY_WHEEl)
+            FabricBlockEntityTypeBuilder.create(BaseWarsMoneyWheelBlockEntity::new, ItemRegistry.BASE_WARS_MONEY_WHEEL)
                     .build()
     );
     public static BlockEntityType<PoopLauncherBlockEntity> POOP_LAUNCHER = Registry.register(
