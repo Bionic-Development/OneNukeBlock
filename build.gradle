@@ -22,7 +22,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/illegalwars.accesswidener")
+    accessWidenerPath = file("src/main/resources/secretcraftbase.accesswidener")
 }
 
 dependencies {
@@ -34,6 +34,7 @@ dependencies {
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "de.takacick:bionicutils:1.1.4+1.20.4"
+    modImplementation "com.sq89q:worldedit-mod:7.2.19"
 }
 
 processResources {

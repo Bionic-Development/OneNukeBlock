@@ -1,0 +1,33 @@
+{
+	"parent": "minecraft:block/white_concrete",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 180],
+			"translation": [0, 10.25, 0],
+			"scale": [1.125, 1.125, 1.125]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 180],
+			"translation": [2.5, -2.75, -7.5],
+			"scale": [1.2, 1.2, 1.2]
+		},
+		"ground": {
+			"rotation": [0, 0, 180],
+			"translation": [0, 5, 0],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"gui": {
+			"rotation": [30, 225, 180],
+			"scale": [1.025, 1.025, 1.025]
+		},
+		"head": {
+			"rotation": [0, 0, 180],
+			"translation": [0, 17.25, 0],
+			"scale": [3, 3, 3]
+		},
+		"fixed": {
+			"rotation": [0, 0, 180],
+			"scale": [1.5, 1.5, 1.5]
+		}
+	}
+}

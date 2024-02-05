@@ -1,7 +1,11 @@
 {
   "values": [
-    "illegalwars:poop_launcher",
-    "illegalwars:dripstone_spikes",
-    "illegalwars:piglin_gold_turret"
+    "secretcraftbase:secret_magic_well_cobblestone",
+    "secretcraftbase:secret_magic_well_mossy_cobblestone",
+    "secretcraftbase:big_white_block",
+    "secretcraftbase:secret_fake_sun",
+    "secretcraftbase:deepslate_secret_redstone_mirror_melter_ore",
+    "secretcraftbase:stone_secret_redstone_mirror_melter_ore",
+    "secretcraftbase:diamond_ore_chunks"
   ]
 }

@@ -1,12 +1,8 @@
 {
     "sources": [
-        {
-            "type": "single",
-            "resource": "illegalwars:block/sludge_liquid_still"
-        },
-        {
-          "type": "single",
-          "resource": "illegalwars:block/sludge_liquid_flow"
-        }
+      {
+        "type": "single",
+        "resource": "secretcraftbase:entity/nether_portal"
+      }
     ]
 }

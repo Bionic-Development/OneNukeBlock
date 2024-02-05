@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "illegalwars",
+  "id": "secretcraftbase",
   "version": "${version}",
-  "name": "IllegalWars Mod",
-  "description": "IllegalWars",
+  "name": "SecretCraftBase Mod",
+  "description": "SecretCraftBase",
   "authors": [
     "Takacick"
   ],
@@ -12,22 +12,23 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/illegalwars/icon.png",
+  "icon": "assets/secretcraftbase/icon.png",
   "environment": "*",
-  "accessWidener": "illegalwars.accesswidener",
+  "accessWidener": "secretcraftbase.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.illegalwars.IllegalWars"
+      "de.takacick.secretcraftbase.SecretCraftBase"
     ],
     "client": [
-      "de.takacick.illegalwars.IllegalWarsClient"
+      "de.takacick.secretcraftbase.SecretCraftBaseClient"
     ]
   },
   "mixins": [
-    "illegalwars.mixins.json"
+    "secretcraftbase.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.4",
+    "worldedit": ">=7.2",
     "fabricloader": ">=0.15.6",
     "fabric": "*",
     "minecraft": "~1.20.4",
