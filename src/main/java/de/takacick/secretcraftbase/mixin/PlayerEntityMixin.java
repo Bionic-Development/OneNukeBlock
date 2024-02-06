@@ -5,9 +5,7 @@ import de.takacick.secretcraftbase.access.PlayerProperties;
 import de.takacick.secretcraftbase.registry.ItemRegistry;
 import de.takacick.utils.BionicUtils;
 import de.takacick.utils.data.BionicDataTracker;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FallingBlock;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.TrackedData;
@@ -65,14 +63,11 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             if (this.secretcraftbase$toungeTicks > 0) {
                 this.secretcraftbase$toungeTicks--;
 
-                if (this.secretcraftbase$toungeTicks <= 17) {
+                if (this.secretcraftbase$toungeTicks <= 19) {
                     if (this.secretcraftbase$target != null) {
                         secretcraftbase$eatFrogTarget();
+                        this.secretcraftbase$toungeTicks = 0;
                     }
-                }
-
-                if (this.secretcraftbase$toungeTicks <= 0) {
-                    this.secretcraftbase$target = null;
                 }
             }
 
@@ -147,7 +142,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     }
 
     public boolean secretcraftbase$isUsingFrogTongue() {
-        return this.secretcraftbase$toungeTicks > 20;
+        return this.secretcraftbase$toungeTicks > 18;
     }
 
     public void secretcraftbase$setFrogTongueLength(float frogTongueLength) {
