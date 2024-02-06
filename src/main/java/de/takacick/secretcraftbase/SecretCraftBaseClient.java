@@ -2,6 +2,7 @@ package de.takacick.secretcraftbase;
 
 import com.google.common.collect.Lists;
 import de.takacick.secretcraftbase.access.PlayerProperties;
+import de.takacick.secretcraftbase.client.renderer.ShadowRenderer;
 import de.takacick.secretcraftbase.mixin.IngameHudAccessor;
 import de.takacick.secretcraftbase.registry.EntityRegistry;
 import de.takacick.secretcraftbase.registry.ItemRegistry;
@@ -32,6 +33,7 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.SlimeEntityRenderer;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
@@ -330,7 +332,8 @@ public class SecretCraftBaseClient implements ClientModInitializer {
             Entity entity = EntityNbtHelper.getEntityType(stack).create(MinecraftClient.getInstance().world);
             if (entity != null) {
                 entity.readNbt(EntityNbtHelper.getEntityNbt(stack));
-                MinecraftClient.getInstance().getEntityRenderDispatcher().render(entity, BlockPos.ORIGIN.getX(), BlockPos.ORIGIN.getY(), BlockPos.ORIGIN.getZ(), 0, 0, matrices, vertexConsumers, light);
+                entity.setPos(0, 0, 0);
+                ShadowRenderer.renderEntity(entity, mode, matrices, vertexConsumers, light);
             }
         });
 
@@ -341,7 +344,7 @@ public class SecretCraftBaseClient implements ClientModInitializer {
 
             Entity entity = EntityRegistry.SECRET_PIG_POWERED_PORTAL.create(MinecraftClient.getInstance().world);
             if (entity != null) {
-                MinecraftClient.getInstance().getEntityRenderDispatcher().render(entity, BlockPos.ORIGIN.getX(), BlockPos.ORIGIN.getY(), BlockPos.ORIGIN.getZ(), 0, 0, matrices, vertexConsumers, light);
+                ShadowRenderer.renderEntity(entity, mode, matrices, vertexConsumers, light);
             }
         });
 
@@ -353,7 +356,7 @@ public class SecretCraftBaseClient implements ClientModInitializer {
 
             Entity entity = EntityRegistry.SECRET_GIANT_JUMPY_SLIME.create(MinecraftClient.getInstance().world);
             if (entity != null) {
-                MinecraftClient.getInstance().getEntityRenderDispatcher().render(entity, BlockPos.ORIGIN.getX(), BlockPos.ORIGIN.getY(), BlockPos.ORIGIN.getZ(), 0, 0, matrices, vertexConsumers, light);
+                ShadowRenderer.renderEntity(entity, mode, matrices, vertexConsumers, light);
             }
         });
 
@@ -395,6 +398,16 @@ public class SecretCraftBaseClient implements ClientModInitializer {
                 entity.age = MinecraftClient.getInstance().player == null ? 0 : MinecraftClient.getInstance().player.age;
 
                 MinecraftClient.getInstance().getEntityRenderDispatcher().render(entity, BlockPos.ORIGIN.getX(), BlockPos.ORIGIN.getY(), BlockPos.ORIGIN.getZ(), 0, tickDelta, matrices, vertexConsumers, light);
+            }
+        });
+
+        BuiltinItemRendererRegistry.INSTANCE.register(ItemRegistry.FROG, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
+            if (mode.equals(ModelTransformationMode.GUI)) {
+                matrices.push();
+                matrices.translate(0.5, 0, 0.5);
+
+                ShadowRenderer.renderShadow(matrices, vertexConsumers, null, 1.0F, 0.4f);
+                matrices.pop();
             }
         });
     }
