@@ -3,9 +3,8 @@ package de.takacick.secretcraftbase.server.datatracker;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import org.joml.Vector3f;
-
-import java.util.Random;
 
 public class BezierCurve {
 
@@ -14,16 +13,16 @@ public class BezierCurve {
     private Vec3d end;
 
     public BezierCurve() {
-        this.start = new Vec3d(0, -100, 0);
-        this.pos = new Vec3d(0, -100, 0);
-        this.end = new Vec3d(0, -100, 0);
+        this.start = new Vec3d(0, 0, 0);
+        this.pos = new Vec3d(0, 0, 0);
+        this.end = new Vec3d(0, 0, 0);
     }
 
     public BezierCurve(Vec3d start, Vec3d end, boolean placing) {
         this.start = start;
         this.end = end;
 
-        Random random = new Random();
+        Random random = Random.create();
 
         Vec3d rot = rotateAroundYAxis(end.subtract(start).normalize(), random.nextBoolean() ? -90 : 90);
 

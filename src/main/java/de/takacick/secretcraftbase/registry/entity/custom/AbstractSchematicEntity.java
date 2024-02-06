@@ -52,7 +52,7 @@ public abstract class AbstractSchematicEntity extends Entity {
     private float size;
     private float prevSize;
 
-    private List<BlockPos> unmodifiedBlocks;
+    private final List<BlockPos> unmodifiedBlocks = new ArrayList<>();
     private int areaScale = -1;
     private int removing = -1;
     private int placing = -1;
@@ -91,29 +91,31 @@ public abstract class AbstractSchematicEntity extends Entity {
     public void tick() {
         if (!this.getWorld().isClient) {
             this.setRotationSpeed(Math.min(getRotationSpeed() + 1f, 15));
+            Clipboard clipboard = WorldEditUtils.getClipboard(getSchematic()).orElse(null);
+            if (clipboard == null) {
+                this.discard();
+                return;
+            }
+            BlockVector3 max = clipboard.getMaximumPoint();
+            BlockVector3 min = clipboard.getMinimumPoint();
 
-            WorldEditUtils.getClipboard(getSchematic()).ifPresent(clipboard -> {
-                BlockVector3 max = clipboard.getMaximumPoint();
-                BlockVector3 min = clipboard.getMinimumPoint();
+            if (getTargetHeight() <= -100f || center == null) {
+                float maxHeight = (max.getY() - min.getY()) / 2f;
+                setTargetHeight((float) (maxHeight + getY()));
+                center = getBlockPos().add(0, (int) maxHeight, 0);
 
-                if (getTargetHeight() <= -100f || center == null) {
-                    float maxHeight = (max.getY() - min.getY()) / 2f;
-                    setTargetHeight((float) (maxHeight + getY()));
-                    center = getBlockPos().add(0, (int) maxHeight, 0);
+                BlockPos maxPos = getMaxBlockPos(max, min);
+                BlockPos minPos = getMinBlockPos(max, min);
+                setSchematicBox(new SchematicBox(minPos.add(center), maxPos.add(center)));
+            }
 
-                    BlockPos maxPos = getMaxBlockPos(max, min);
-                    BlockPos minPos = getMinBlockPos(max, min);
-                    setSchematicBox(new SchematicBox(minPos.add(center), maxPos.add(center)));
+            if (getTargetHeight() <= getY() && this.size >= 1f) {
+                if (this.isPlacing) {
+                    placingBlocks(clipboard);
+                } else {
+                    removeBlocks(clipboard);
                 }
-
-                if (getTargetHeight() <= getY() && this.size >= 1f) {
-                    if (this.isPlacing) {
-                        placingBlocks(clipboard);
-                    } else {
-                        removeBlocks(clipboard);
-                    }
-                }
-            });
+            }
         }
 
         this.prevSize = this.size;
@@ -167,10 +169,6 @@ public abstract class AbstractSchematicEntity extends Entity {
         BlockVector3 max = clipboard.getMaximumPoint();
         BlockVector3 min = clipboard.getMinimumPoint();
 
-        if (this.unmodifiedBlocks == null) {
-            this.unmodifiedBlocks = new ArrayList<>();
-        }
-
         if (this.areaScale < getAxisLength(max.getX(), min.getX())
                 || this.areaScale < getAxisLength(max.getY(), min.getY())
                 || this.areaScale < getAxisLength(max.getZ(), min.getZ())) {
@@ -213,20 +211,21 @@ public abstract class AbstractSchematicEntity extends Entity {
             this.removing = -1;
         }
 
-        int breaking = Math.min(this.unmodifiedBlocks.size() / 5, 80);
+        int breaking = Math.min(this.unmodifiedBlocks.size() / 5, 90);
         boolean small = this.unmodifiedBlocks.size() < 10;
+        List<BlockPos> modified = new ArrayList<>();
 
         for (int i = 0; i < Math.max(15, breaking); i++) {
             if (this.unmodifiedBlocks.isEmpty()) {
                 break;
             }
 
-            BlockPos offset = this.unmodifiedBlocks.get(getWorld().getRandom().nextInt(this.unmodifiedBlocks.size()));
+            BlockPos offset = this.unmodifiedBlocks.get(random.nextInt(this.unmodifiedBlocks.size()));
             BlockPos blockPos = offset.add(center);
             BlockState blockState = getWorld().getBlockState(blockPos);
             WorldChunkUtils.setBlockState(getWorld(), blockPos, Blocks.AIR.getDefaultState(), false);
 
-            this.unmodifiedBlocks.remove(offset);
+            modified.add(offset);
 
             if (blockState.isAir()) {
                 continue;
@@ -238,22 +237,20 @@ public abstract class AbstractSchematicEntity extends Entity {
             breakingBlockEntity.refreshPositionAndAngles(pos.getX(), pos.getY() + 0.375, pos.getZ(), 0f, 0f);
             breakingBlockEntity.setFromBlockPos(blockPos);
             breakingBlockEntity.setBlockState(blockState);
-            breakingBlockEntity.initializeTarget(getPos().add(0, 1, 0));
+            breakingBlockEntity.initializeTarget(new Vec3d(getX(), getY() + 1, getZ()));
             getWorld().spawnEntity(breakingBlockEntity);
 
             if (getWorld().getRandom().nextDouble() <= 0.3 || small) {
                 BionicUtils.sendEntityStatus(getWorld(), breakingBlockEntity, SecretCraftBase.IDENTIFIER, 10);
             }
         }
+
+        this.unmodifiedBlocks.removeAll(modified);
     }
 
     public void placingBlocks(Clipboard clipboard) {
         BlockVector3 max = clipboard.getMaximumPoint();
         BlockVector3 min = clipboard.getMinimumPoint();
-
-        if (this.unmodifiedBlocks == null) {
-            this.unmodifiedBlocks = new ArrayList<>();
-        }
 
         if (this.areaScale < getAxisLength(max.getY(), min.getY())) {
             if (this.unmodifiedBlocks.isEmpty()) {
@@ -285,11 +282,13 @@ public abstract class AbstractSchematicEntity extends Entity {
             this.placing = -1;
         }
 
-        int placing = Math.min(this.unmodifiedBlocks.size() / 5, 60);
+        int placing = Math.min(this.unmodifiedBlocks.size() / 5, 90);
 
         BlockVector3 centerVector = getCenterBlockPos(max, min);
 
         boolean small = this.unmodifiedBlocks.size() < 10;
+
+        List<BlockPos> modified = new ArrayList<>();
 
         for (int i = 0; i < Math.max(15, placing); i++) {
             if (this.unmodifiedBlocks.isEmpty()) {
@@ -301,7 +300,7 @@ public abstract class AbstractSchematicEntity extends Entity {
             BaseBlock baseBlock = clipboard.getFullBlock(centerVector.add(offset.getX(), offset.getY(), offset.getZ()));
 
             BlockState blockState = toNative(baseBlock.toImmutableState());
-            this.unmodifiedBlocks.remove(offset);
+            modified.add(offset);
 
             if (blockState.isAir()) {
                 continue;
@@ -310,7 +309,7 @@ public abstract class AbstractSchematicEntity extends Entity {
             NbtCompound nbtCompound = toNative(baseBlock.getNbtData());
 
             BlockPos blockPos = offset.add(center);
-            Vec3d pos = Vec3d.ofBottomCenter(blockPos);
+            final Vec3d pos = Vec3d.ofBottomCenter(blockPos).add(0, 0.375, 0);
 
             PlacingBlockEntity placingBlockEntity = new PlacingBlockEntity(EntityRegistry.PLACING_BLOCK, getWorld());
             placingBlockEntity.refreshPositionAndAngles(getX(), getY() + 1, getZ(), 0f, 0f);
@@ -321,7 +320,7 @@ public abstract class AbstractSchematicEntity extends Entity {
 
             placingBlockEntity.setFromBlockPos(blockPos);
             placingBlockEntity.setBlockState(blockState);
-            placingBlockEntity.initializeTarget(new Vec3d(pos.getX(), pos.getY() + 0.375, pos.getZ()));
+            placingBlockEntity.initializeTarget(new Vec3d(pos.getX(), pos.getY(), pos.getZ()));
 
             getWorld().spawnEntity(placingBlockEntity);
 
@@ -329,15 +328,13 @@ public abstract class AbstractSchematicEntity extends Entity {
                 BionicUtils.sendEntityStatus(getWorld(), placingBlockEntity, SecretCraftBase.IDENTIFIER, 10);
             }
         }
+
+        this.unmodifiedBlocks.removeAll(modified);
     }
 
     public void unorganizedPlacingBlocks(Clipboard clipboard) {
         BlockVector3 max = clipboard.getMaximumPoint();
         BlockVector3 min = clipboard.getMinimumPoint();
-
-        if (this.unmodifiedBlocks == null) {
-            this.unmodifiedBlocks = new ArrayList<>();
-        }
 
         if (this.areaScale < getAxisLength(max.getX(), min.getX())
                 || this.areaScale < getAxisLength(max.getY(), min.getY())
@@ -499,7 +496,7 @@ public abstract class AbstractSchematicEntity extends Entity {
             NbtList nbtElements = new NbtList();
 
             this.unmodifiedBlocks.forEach(blockPos -> {
-                if(blockPos != null) {
+                if (blockPos != null) {
                     nbtElements.add(NbtHelper.fromBlockPos(blockPos));
                 }
             });
@@ -542,7 +539,6 @@ public abstract class AbstractSchematicEntity extends Entity {
             this.center = NbtHelper.toBlockPos(nbt.getCompound("Center"));
         }
         if (nbt.contains("unmodifiedBlocks", NbtCompound.LIST_TYPE)) {
-            this.unmodifiedBlocks = new ArrayList<>();
             nbt.getList("unmodifiedBlocks", NbtCompound.COMPOUND_TYPE).forEach(nbtElement -> {
                 if (nbtElement instanceof NbtCompound nbtCompound) {
                     this.unmodifiedBlocks.add(NbtHelper.toBlockPos(nbtCompound));
