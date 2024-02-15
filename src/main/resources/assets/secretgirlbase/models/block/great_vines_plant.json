@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "secretgirlbase:block/great_vines_plant"
+  }
+}

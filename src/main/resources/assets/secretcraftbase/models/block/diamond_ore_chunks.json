@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "secretcraftbase:block/diamond_ore_chunks"
-  }
-}

@@ -1,0 +1,17 @@
+{
+  "magic_vanish": {
+    "sounds": [
+      "secretgirlbase:magic_vanish"
+    ]
+  },
+  "shrink": {
+    "sounds": [
+      "secretgirlbase:shrink"
+    ]
+  },
+  "grow": {
+    "sounds": [
+      "secretgirlbase:grow"
+    ]
+  }
+}

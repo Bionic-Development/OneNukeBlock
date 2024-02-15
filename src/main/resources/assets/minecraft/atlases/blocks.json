@@ -1,8 +1,0 @@
-{
-    "sources": [
-      {
-        "type": "single",
-        "resource": "secretcraftbase:entity/nether_portal"
-      }
-    ]
-}

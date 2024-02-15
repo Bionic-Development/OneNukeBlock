@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "secretcraftbase",
+  "id": "secretgirlbase",
   "version": "${version}",
   "name": "SecretCraftBase Mod",
   "description": "SecretCraftBase",
@@ -12,23 +12,23 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/secretcraftbase/icon.png",
+  "icon": "assets/secretgirlbase/icon.png",
   "environment": "*",
-  "accessWidener": "secretcraftbase.accesswidener",
+  "accessWidener": "secretgirlbase.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.secretcraftbase.SecretCraftBase"
+      "de.takacick.secretgirlbase.SecretGirlBase"
     ],
     "client": [
-      "de.takacick.secretcraftbase.SecretCraftBaseClient"
+      "de.takacick.secretgirlbase.SecretGirlBaseClient"
     ]
   },
   "mixins": [
-    "secretcraftbase.mixins.json"
+    "secretgirlbase.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.4",
-    "worldedit": ">=7.2",
+    "pehkui": ">=3.7.12",
     "fabricloader": ">=0.15.6",
     "fabric": "*",
     "minecraft": "~1.20.4",

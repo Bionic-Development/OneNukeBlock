@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "secretgirlbase:block/great_vines"
+    },
+    "berries=true": {
+      "model": "secretgirlbase:block/great_vines_lit"
+    }
+  }
+}

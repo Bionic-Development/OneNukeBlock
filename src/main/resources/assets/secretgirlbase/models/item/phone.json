@@ -1,0 +1,54 @@
+{
+	"textures": {
+		"0": "secretgirlbase:item/phone",
+		"particle": "secretgirlbase:item/phone"
+	},
+	"elements": [
+		{
+			"name": "phone",
+			"from": [5.5, 3, 7],
+			"to": [10.5, 13, 8],
+			"faces": {
+				"north": {"uv": [1, 1, 6, 11], "texture": "#0"},
+				"east": {"uv": [0, 1, 1, 11], "texture": "#0"},
+				"south": {"uv": [7, 1, 12, 11], "texture": "#0"},
+				"west": {"uv": [6, 1, 7, 11], "texture": "#0"},
+				"up": {"uv": [6, 1, 1, 0], "texture": "#0"},
+				"down": {"uv": [11, 0, 6, 1], "texture": "#0"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [58, 143, 0],
+			"translation": [0, 3.25, 4]
+		},
+		"firstperson_righthand": {
+			"rotation": [-3, 112, 0],
+			"translation": [0, 5, 0]
+		},
+		"ground": {
+			"translation": [0, 5.25, 0]
+		},
+		"gui": {
+			"rotation": [17, -169, 0],
+			"translation": [-0.5, 0, 0],
+			"scale": [1.225, 1.225, 1.225]
+		},
+		"head": {
+			"translation": [0, 9.25, 0]
+		},
+		"fixed": {
+			"scale": [2, 2, 2]
+		}
+	},
+	"groups": [
+		{
+			"name": "phone",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}
