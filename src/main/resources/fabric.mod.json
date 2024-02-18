@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "secretgirlbase",
   "version": "${version}",
-  "name": "SecretCraftBase Mod",
-  "description": "SecretCraftBase",
+  "name": "SecretGirlBase Mod",
+  "description": "SecretGirlBase",
   "authors": [
     "Takacick"
   ],
