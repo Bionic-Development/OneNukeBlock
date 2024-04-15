@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "secretgirlbase:block/teeny_berry_bush_stage2"
-  }
-}

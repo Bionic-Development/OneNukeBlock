@@ -19,11 +19,10 @@ repositories {
     flatDir {
         dirs 'lib'
     }
-    maven { url 'https://jitpack.io' }
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/secretgirlbase.accesswidener")
+    accessWidenerPath = file("src/main/resources/onegirlfriendblock.accesswidener")
 }
 
 dependencies {
@@ -35,9 +34,6 @@ dependencies {
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "de.takacick:bionicutils:1.1.4+1.20.4"
-    modApi("com.github.Virtuoel:Pehkui:3.7.12", {
-        exclude group: "net.fabricmc.fabric-api"
-    })
 }
 
 processResources {

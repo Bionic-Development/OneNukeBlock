@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "secretgirlbase",
+  "id": "onegirlfriendblock",
   "version": "${version}",
-  "name": "SecretGirlBase Mod",
-  "description": "SecretGirlBase",
+  "name": "OneGirlfriendBlock Mod",
+  "description": "OneGirlfriendBlock",
   "authors": [
     "Takacick"
   ],
@@ -12,23 +12,22 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/secretgirlbase/icon.png",
+  "icon": "assets/onegirlfriendblock/icon.png",
   "environment": "*",
-  "accessWidener": "secretgirlbase.accesswidener",
+  "accessWidener": "onegirlfriendblock.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.secretgirlbase.SecretGirlBase"
+      "de.takacick.onegirlfriendblock.OneGirlfriendBlock"
     ],
     "client": [
-      "de.takacick.secretgirlbase.SecretGirlBaseClient"
+      "de.takacick.onegirlfriendblock.OneGirlfriendBlockClient"
     ]
   },
   "mixins": [
-    "secretgirlbase.mixins.json"
+    "onegirlfriendblock.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.4",
-    "pehkui": ">=3.7.12",
     "fabricloader": ">=0.15.6",
     "fabric": "*",
     "minecraft": "~1.20.4",

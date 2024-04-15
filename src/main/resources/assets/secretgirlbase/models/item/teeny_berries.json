@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "secretgirlbase:item/teeny_berries"
-  }
-}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " H ",
+    "RTA",
+    " L "
+  ],
+  "key": {
+    "H": {
+      "item": "onegirlfriendblock:girlfriend_head"
+    },
+    "R": {
+      "item": "onegirlfriendblock:girlfriend_right_arm"
+    },
+    "T": {
+      "item": "onegirlfriendblock:girlfriend_torso"
+    },
+    "A": {
+      "item": "onegirlfriendblock:girlfriend_left_arm"
+    },
+    "L": {
+      "item": "onegirlfriendblock:girlfriend_legs"
+    }
+  },
+  "result": {
+    "item": "onegirlfriendblock:girlfriend"
+  }
+}
