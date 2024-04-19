@@ -25,13 +25,13 @@ public abstract class InGameHudMixin {
     protected abstract void renderOverlay(DrawContext context, Identifier texture, float opacity);
 
     @Unique
-    private static final Identifier onegirlfriendblock$BUBBLE_GUM_OVERLAY = new Identifier(OneGirlfriendBlock.MOD_ID, "textures/misc/bubble_gum_overlay.png");
+    private static final Identifier onegirlfriendblock$LIPSTICK_OVERLAY = new Identifier(OneGirlfriendBlock.MOD_ID, "textures/misc/lipstick_overlay.png");
 
     @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getFrozenTicks()I"))
     private void render(DrawContext context, float tickDelta, CallbackInfo info) {
         if (this.client.options.getPerspective().isFirstPerson()) {
             if (this.client.player instanceof LivingProperties livingProperties && livingProperties.getLipstickStrength() > 0f) {
-                this.renderOverlay(context, onegirlfriendblock$BUBBLE_GUM_OVERLAY, livingProperties.getLipstickStrength());
+                this.renderOverlay(context, onegirlfriendblock$LIPSTICK_OVERLAY, livingProperties.getLipstickStrength());
             }
         }
     }
