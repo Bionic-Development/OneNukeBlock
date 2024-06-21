@@ -39,7 +39,8 @@ public class BloodBorderSuitItemModel extends ItemModel {
     public void renderFeatures(@Nullable LivingEntity livingEntity, ModelTransformationMode modelTransformationMode, ItemStack itemStack, MatrixStack matrices, long time, float tickDelta, VertexConsumerProvider vertices, int light, int overlay, float red, float green, float blue, float alpha) {
         float delta = MinecraftClient.getInstance().isPaused() ? 0f : MinecraftClient.getInstance().getTickDelta();
         float progress = 0f;
-        if (livingEntity instanceof BloodBorderProperties bloodBorderProperties && livingEntity.getEquippedStack(EquipmentSlot.CHEST).equals(itemStack)) {
+        if (MinecraftClient.getInstance().player instanceof BloodBorderProperties bloodBorderProperties
+                && MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST).equals(itemStack)) {
             progress = bloodBorderProperties.getBloodBorderSuitHelper().getProgress(delta);
         }
 

@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ShaderProgram.class)
-@Implements({@Interface(iface = ShaderProgramProperties.class, prefix = "scarydrops$")})
+@Implements({@Interface(iface = ShaderProgramProperties.class, prefix = "onescaryblock$")})
 public abstract class ShaderProgramMixin implements ShaderProgramSetupView, AutoCloseable {
 
     @Shadow
@@ -28,7 +28,7 @@ public abstract class ShaderProgramMixin implements ShaderProgramSetupView, Auto
         this.onescaryblock$bloodOverlayProgress = this.getUniform("BloodOverlayProgress");
     }
 
-    public void scarydrops$setBloodOverlayProgress(float bloodOverlayProgress) {
+    public void onescaryblock$setBloodOverlayProgress(float bloodOverlayProgress) {
         if (this.onescaryblock$bloodOverlayProgress != null) {
             this.onescaryblock$bloodOverlayProgress.set(bloodOverlayProgress);
         }

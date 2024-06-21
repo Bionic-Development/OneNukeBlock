@@ -59,7 +59,7 @@ public abstract class BuiltinModelItemRendererMixin {
 
             RenderLayer renderLayer = animatedItemModel.getLayer(animatedItemModel.getTexture(stack));
             animatedItemModel.render(matrices, vertexConsumers.getBuffer(renderLayer), light, overlay, 1f, 1f, 1f, 1f);
-            animatedItemModel.renderFeatures(null, mode, stack, matrices, time, tickDelta, vertexConsumers, light, overlay, 1f, 1f, 1f, 1f);
+            animatedItemModel.renderFeatures(livingEntity, mode, stack, matrices, time, tickDelta, vertexConsumers, light, overlay, 1f, 1f, 1f, 1f);
 
             if (stack.hasGlint()) {
                 animatedItemModel.render(matrices, vertexConsumers.getBuffer(RenderLayer.getArmorEntityGlint()), light, overlay, 1f, 1f, 1f, 1f);
