@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "onegirlfriendblock",
+  "id": "onescaryblock",
   "version": "${version}",
-  "name": "OneGirlfriendBlock Mod",
-  "description": "OneGirlfriendBlock",
+  "name": "OneScaryBlock Mod",
+  "description": "OneScaryBlock",
   "authors": [
     "Takacick"
   ],
@@ -12,19 +12,19 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/onegirlfriendblock/icon.png",
+  "icon": "assets/onescaryblock/icon.png",
   "environment": "*",
-  "accessWidener": "onegirlfriendblock.accesswidener",
+  "accessWidener": "onescaryblock.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.onegirlfriendblock.OneGirlfriendBlock"
+      "de.takacick.onescaryblock.OneScaryBlock"
     ],
     "client": [
-      "de.takacick.onegirlfriendblock.OneGirlfriendBlockClient"
+      "de.takacick.onescaryblock.OneScaryBlockClient"
     ]
   },
   "mixins": [
-    "onegirlfriendblock.mixins.json"
+    "onescaryblock.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=1.1.4",
