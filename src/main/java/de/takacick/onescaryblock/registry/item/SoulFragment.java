@@ -26,7 +26,6 @@ public class SoulFragment extends Item {
             if (user instanceof PlayerProperties playerProperties) {
                 playerProperties.getSoulFragmentHelper().setTick(playerProperties.getSoulFragmentHelper().getMaxTicks());
                 BionicUtils.sendEntityStatus(world, user, OneScaryBlock.IDENTIFIER, 3);
-                itemStack.decrement(1);
             }
         }
 
