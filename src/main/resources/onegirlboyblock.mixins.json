@@ -26,8 +26,7 @@
     "glitterblade.MinecraftClientMixin",
     "oneblock.BlockDustParticleMixin",
     "oneblock.ClientPlayerInteractionManagerMixin",
-    "shader.GameRendererMixin",
-    "shader.ShaderProgramMixin"
+    "shader.GameRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
