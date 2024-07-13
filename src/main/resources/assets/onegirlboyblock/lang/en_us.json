@@ -17,7 +17,6 @@
   "entity.onegirlboyblock.tetris": "Tetris",
   "entity.onegirlboyblock.flame": "Flame",
   "itemGroup.onegirlboyblock": "OneGirlBoyBlock Items",
-  "category.onegirlboyblock": "OneScaryBlock Abilities",
   "death.attack.onegirlboyblock.tetris": "%1$s was consumed by 8-Bit",
   "death.attack.onegirlboyblock.tetris.player": "%1$s was consumed by 8-Bit while fighting %2$s"
 }
