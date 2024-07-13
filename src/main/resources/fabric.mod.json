@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "onescaryblock",
+  "id": "onegirlboyblock",
   "version": "${version}",
   "name": "OneScaryBlock Mod",
   "description": "OneScaryBlock",
@@ -12,26 +12,27 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/onescaryblock/icon.png",
+  "icon": "assets/onegirlboyblock/icon.png",
   "environment": "*",
-  "accessWidener": "onescaryblock.accesswidener",
+  "accessWidener": "onegirlboyblock.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.onescaryblock.OneScaryBlock"
+      "de.takacick.onegirlboyblock.OneGirlBoyBlock"
     ],
     "client": [
-      "de.takacick.onescaryblock.OneScaryBlockClient"
+      "de.takacick.onegirlboyblock.OneGirlBoyBlockClient"
     ]
   },
   "mixins": [
-    "onescaryblock.mixins.json"
+    "onegirlboyblock.mixins.json"
   ],
   "depends": {
-    "bionicutils": ">=1.1.4",
+    "bionicutils": ">=2.0.0",
+    "pehkui": ">=3.8.3",
     "fabricloader": ">=0.15.6",
     "fabric": "*",
-    "minecraft": "~1.20.4",
-    "java": ">=17"
+    "minecraft": "~1.21",
+    "java": ">=21"
   },
   "suggests": {
     "another-mod": "*"

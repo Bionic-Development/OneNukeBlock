@@ -1,0 +1,35 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.takacick.onegirlboyblock.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "armor.LivingEntityMixin",
+    "armor.butterflywings.LivingEntityMixin",
+    "armor.butterflywings.PlayerEntityMixin",
+    "oneblock.ServerPlayerInteractionManagerMixin",
+    "pickaxe.ServerPlayerInteractionManagerMixin"
+  ],
+  "client": [
+    "animations.AnimalModelMixin",
+    "animations.HeldItemRendererMixin",
+    "animations.MinecraftClientMixin",
+    "animations.PlayerEntityModelMixin",
+    "animations.PlayerEntityRendererMixin",
+    "armor.ArmorFeatureRendererMixin",
+    "armor.BipedEntityRendererMixin",
+    "armor.PlayerEntityRendererMixin",
+    "armor.butterflywings.CapeFeatureRendererMixin",
+    "armor.butterflywings.ClientPlayerEntityMixin",
+    "glitterblade.MinecraftClientMixin",
+    "oneblock.BlockDustParticleMixin",
+    "oneblock.ClientPlayerInteractionManagerMixin",
+    "shader.GameRendererMixin",
+    "shader.ShaderProgramMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

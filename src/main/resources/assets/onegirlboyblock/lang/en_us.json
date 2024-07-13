@@ -1,0 +1,23 @@
+{
+  "block.onegirlboyblock.one_girl_block": "One Girl Block",
+  "block.onegirlboyblock.one_boy_block": "One Boy Block",
+  "item.onegirlboyblock.baseball_bat": "§cBaseball §eBat",
+  "item.onegirlboyblock.football_gear": "§cFoot§fball §bGear",
+  "item.onegirlboyblock.turbo_board": "§3Turbo §bBoard",
+  "item.onegirlboyblock.8_bit_cannon": "§e8-bit §9Cannon",
+  "item.onegirlboyblock.golden_meat": "§eGolden Meat",
+  "item.onegirlboyblock.weighted_anvil_hammer": "§4Weighted §7Anvil §eHammer",
+  "item.onegirlboyblock.glitter_blade": "§dGlitter §5Blade",
+  "item.onegirlboyblock.tiara": "§eTiara",
+  "item.onegirlboyblock.butterfly_wings": "§dButterfly §bWings",
+  "item.onegirlboyblock.inferno_hair_dryer": "§cInferno §eHair Dryer",
+  "item.onegirlboyblock.strawberry_shortcake": "§cStrawberry §dShortcake",
+  "item.onegirlboyblock.star_miner": "§eStar §dMiner",
+  "entity.onegirlboyblock.turbo_board": "Turbo Board",
+  "entity.onegirlboyblock.tetris": "Tetris",
+  "entity.onegirlboyblock.flame": "Flame",
+  "itemGroup.onegirlboyblock": "OneGirlBoyBlock Items",
+  "category.onegirlboyblock": "OneScaryBlock Abilities",
+  "death.attack.onegirlboyblock.tetris": "%1$s was consumed by 8-Bit",
+  "death.attack.onegirlboyblock.tetris.player": "%1$s was consumed by 8-Bit while fighting %2$s"
+}

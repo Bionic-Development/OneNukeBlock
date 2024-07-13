@@ -1,0 +1,62 @@
+{
+	"parent": "builtin/entity",
+	"texture_size": [64, 32],
+	"textures": {
+		"1": "onegirlboyblock:item/tiara",
+		"particle": "block/gold_block"
+	},
+	"elements": [
+		{
+			"name": "head",
+			"from": [3.3, 0, 3.3],
+			"to": [12.7, 9.4, 12.7],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.7, 8]},
+			"faces": {
+				"north": {"uv": [2, 4, 4, 8], "texture": "#1"},
+				"east": {"uv": [0, 4, 2, 8], "texture": "#1"},
+				"south": {"uv": [6, 4, 8, 8], "texture": "#1"},
+				"west": {"uv": [4, 4, 6, 8], "texture": "#1"},
+				"up": {"uv": [4, 4, 2, 0], "texture": "#1"},
+				"down": {"uv": [6, 0, 4, 4], "texture": "#1"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [69, 26, 0],
+			"translation": [-1, 1, 1.75],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [-26, 74, 25],
+			"translation": [2.63, 3.2, -0.62],
+			"scale": [0.78, 0.78, 0.78]
+		},
+		"ground": {
+			"translation": [0, 4, 0],
+			"scale": [0.65, 0.65, 0.65]
+		},
+		"gui": {
+			"rotation": [15, -165, 0],
+			"translation": [0, -1, 0],
+			"scale": [0.975, 0.975, 0.975]
+		},
+		"head": {
+			"translation": [0, 10, 0],
+			"scale": [0, 0, 0]
+		},
+		"fixed": {
+			"translation": [0.25, 0.5, 0],
+			"scale": [0.875, 0.875, 0.875]
+		}
+	},
+	"groups": [
+		{
+			"name": "head",
+			"origin": [0, 24, 0],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}
