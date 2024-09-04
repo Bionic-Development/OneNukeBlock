@@ -36,10 +36,6 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
 
     @Inject(method = "setModelPose", at = @At(value = "TAIL"))
     public void setModelPose(AbstractClientPlayerEntity player, CallbackInfo info) {
-        if (player.getEquippedStack(EquipmentSlot.HEAD).getItem() instanceof DiamondHazmatArmorItem) {
-            getModel().hat.visible = false;
-        }
-
         if (player.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof DiamondHazmatArmorItem) {
             getModel().jacket.visible = false;
             getModel().leftSleeve.visible = false;
