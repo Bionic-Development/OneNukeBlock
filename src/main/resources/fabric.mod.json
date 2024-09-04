@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "onegirlboyblock",
+  "id": "onenukeblock",
   "version": "${version}",
-  "name": "OneGirlBoyBlock Mod",
-  "description": "OneGirlBoyBlock",
+  "name": "OneNukeBlock Mod",
+  "description": "OneNukeBlock",
   "authors": [
     "Takacick"
   ],
@@ -12,23 +12,23 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/onegirlboyblock/icon.png",
+  "icon": "assets/onenukeblock/icon.png",
   "environment": "*",
-  "accessWidener": "onegirlboyblock.accesswidener",
+  "accessWidener": "onenukeblock.accesswidener",
   "entrypoints": {
     "main": [
-      "de.takacick.onegirlboyblock.OneGirlBoyBlock"
+      "de.takacick.onenukeblock.OneNukeBlock"
     ],
     "client": [
-      "de.takacick.onegirlboyblock.OneGirlBoyBlockClient"
+      "de.takacick.onenukeblock.OneNukeBlockClient"
     ]
   },
   "mixins": [
-    "onegirlboyblock.mixins.json"
+    "onenukeblock.mixins.json"
   ],
   "depends": {
     "bionicutils": ">=2.0.0",
-    "pehkui": ">=3.8.3",
+    "worldedit": ">=7.3.5",
     "fabricloader": ">=0.15.6",
     "fabric": "*",
     "minecraft": "~1.21",

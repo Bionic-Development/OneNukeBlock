@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "onenukeblock:item/nuclear_water_bucket"
+  }
+}

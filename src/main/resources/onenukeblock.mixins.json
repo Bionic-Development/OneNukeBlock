@@ -1,0 +1,42 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.takacick.onenukeblock.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "LivingEntityAccessor",
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "diamondhazmatarmor.ClampedEntityAttributeMixin",
+    "diamondhazmatarmor.LivingEntityMixin",
+    "explosivegummybear.LivingEntityMixin",
+    "kaboomminer.ServerPlayerInteractionManagerMixin",
+    "nuclearwater.EntityMixin",
+    "nuclearwater.LivingEntityMixin",
+    "nuclearwater.WaterFluidMixin",
+    "oneblock.ServerPlayerInteractionManagerMixin",
+    "warden.EntityPositionSourceAccessor",
+    "warden.VibrationListenerMixin",
+    "warden.WardenEntityMixin"
+  ],
+  "client": [
+    "animations.HeldItemRendererMixin",
+    "animations.LivingEntityRendererMixin",
+    "animations.MinecraftClientMixin",
+    "animations.PlayerEntityModelMixin",
+    "animations.PlayerEntityRendererMixin",
+    "diamondhazmatarmor.ArmorFeatureRendererMixin",
+    "diamondhazmatarmor.BipedEntityRendererMixin",
+    "diamondhazmatarmor.PlayerEntityRendererMixin",
+    "explosivegummybear.LivingEntityRendererMixin",
+    "explosivegummybear.PlayerEntityRendererMixin",
+    "nuclearwater.AnimalModelAccessor",
+    "nuclearwater.BackgroundRendererMixin",
+    "nuclearwater.LivingEntityRendererMixin",
+    "oneblock.BlockDustParticleMixin",
+    "oneblock.ClientPlayerInteractionManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
