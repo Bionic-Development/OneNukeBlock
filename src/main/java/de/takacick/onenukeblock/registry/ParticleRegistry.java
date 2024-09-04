@@ -38,6 +38,7 @@ public class ParticleRegistry {
     public static final SimpleParticleType FALLING_BLOOD = FabricParticleTypes.simple();
     public static final SimpleParticleType BLOOD_SPLASH = FabricParticleTypes.simple();
     public static final SimpleParticleType SMOKE = FabricParticleTypes.simple();
+    public static final SimpleParticleType NUKE_EXPLOSION = FabricParticleTypes.simple();
 
     public static final SoundEvent BLOOD_DROP = SoundEvent.of(Identifier.of(OneNukeBlock.MOD_ID, "blood_drop"));
     public static final SoundEvent NUKE_ALERT = SoundEvent.of(Identifier.of(OneNukeBlock.MOD_ID, "nuke_alert"));
@@ -46,6 +47,7 @@ public class ParticleRegistry {
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(OneNukeBlock.MOD_ID, "falling_blood"), FALLING_BLOOD);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(OneNukeBlock.MOD_ID, "blood_splash"), BLOOD_SPLASH);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(OneNukeBlock.MOD_ID, "smoke"), SMOKE);
+        Registry.register(Registries.PARTICLE_TYPE, Identifier.of(OneNukeBlock.MOD_ID, "nuke_explosion"), NUKE_EXPLOSION);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(OneNukeBlock.MOD_ID, "nuclear_bubble"), NUCLEAR_BUBBLE);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(OneNukeBlock.MOD_ID, "nuclear_bubble_column_up"), NUCLEAR_BUBBLE_COLUMN_UP);
         Registry.register(Registries.PARTICLE_TYPE, Identifier.of(OneNukeBlock.MOD_ID, "nuclear_bubble_pop"), NUCLEAR_BUBBLE_POP);

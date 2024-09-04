@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 
 public class NukeOneBlockScreen extends HandledScreen<NukeOneBlockScreenHandler> {
 
-    private static final Identifier TEXTURE = Identifier.of(OneNukeBlock.MOD_ID, "textures/gui/container/one_nuke_block.png");
+    private static final Identifier TEXTURE = Identifier.of(OneNukeBlock.MOD_ID, "textures/gui/container/nuke_one_block.png");
 
     public NukeOneBlockScreen(NukeOneBlockScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

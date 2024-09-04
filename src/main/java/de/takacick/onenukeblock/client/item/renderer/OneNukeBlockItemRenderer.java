@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class OneNukeBlockItemRenderer extends ItemModelRenderer<OneNukeBlockItemModel> {
 
-    public static final Identifier TEXTURE = Identifier.of(OneNukeBlock.MOD_ID, "textures/entity/one_nuke_block.png");
+    public static final Identifier TEXTURE = Identifier.of(OneNukeBlock.MOD_ID, "textures/entity/nuke_one_block.png");
 
     public OneNukeBlockItemRenderer() {
         super(new OneNukeBlockItemModel(OneNukeBlockItemModel.getTexturedModelData().createModel()));

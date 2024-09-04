@@ -23,6 +23,7 @@ import de.takacick.onenukeblock.registry.entity.projectiles.renderer.DiamondSwor
 import de.takacick.onenukeblock.registry.inventory.NukeOneBlockScreen;
 import de.takacick.onenukeblock.registry.particles.BloodLeakParticle;
 import de.takacick.onenukeblock.registry.particles.BloodSplashParticle;
+import de.takacick.onenukeblock.registry.particles.NukeExplosionParticle;
 import de.takacick.onenukeblock.registry.particles.SmokeParticle;
 import de.takacick.onenukeblock.registry.particles.goop.GoopDropParticle;
 import de.takacick.onenukeblock.registry.particles.goop.GoopDropParticleEffect;
@@ -101,6 +102,7 @@ public class OneNukeBlockClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.FALLING_BLOOD, BloodLeakParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.BLOOD_SPLASH, BloodSplashParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.SMOKE, SmokeParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.NUKE_EXPLOSION, NukeExplosionParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.NUCLEAR_BUBBLE, NuclearWaterBubbleParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.NUCLEAR_BUBBLE_COLUMN_UP, NuclearBubbleColumnUpParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.NUCLEAR_BUBBLE_POP, NuclearBubblePopParticle.Factory::new);
@@ -310,6 +312,25 @@ public class OneNukeBlockClient implements ClientModInitializer {
                     }
 
                     world.playSound(g, h, j, SoundEvents.ENTITY_GENERIC_EXPLODE.value(), SoundCategory.AMBIENT, 1f, 1f, false);
+
+                    BlockState blockState = Block.getStateFromRawId(data);
+
+                    NukeParticleUtil.addBlockBreakParticles(blockPos, blockState);
+                } else if (status == 3) {
+                    double g = pos.getX();
+                    double h = pos.getY();
+                    double j = pos.getZ();
+
+                    for (int i = 0; i < 3; ++i) {
+                        double d = random.nextGaussian() * 0.5;
+                        double e = random.nextGaussian() * 0.5;
+                        double f = random.nextGaussian() * 0.5;
+
+                        world.addImportantParticle(ParticleRegistry.NUKE_EXPLOSION,
+                                true, g + d, h + e, j + f, 0.5, 0, 0);
+                    }
+
+                    world.playSound(g, h, j, SoundEvents.ENTITY_GENERIC_EXPLODE.value(), SoundCategory.AMBIENT, 0.2f, 1f, true);
 
                     BlockState blockState = Block.getStateFromRawId(data);
 

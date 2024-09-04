@@ -24,6 +24,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Mixin(LivingEntityRenderer.class)
@@ -51,6 +52,8 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
                 animalModel.invokeGetHeadParts().forEach(modelPartList::add);
                 animalModel.invokeGetBodyParts().forEach(modelPartList::add);
 
+                HashMap<ModelPart, ModelPart> parts = new HashMap<>();
+
                 if (this.getModel() instanceof PlayerEntityModel<?> model) {
                     modelPartList.remove(model.jacket);
                     modelPartList.remove(model.leftSleeve);
@@ -58,6 +61,13 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
                     modelPartList.remove(model.leftPants);
                     modelPartList.remove(model.rightSleeve);
                     modelPartList.remove(model.rightPants);
+
+                    parts.put(model.head, model.hat);
+                    parts.put(model.body, model.jacket);
+                    parts.put(model.leftLeg, model.leftPants);
+                    parts.put(model.rightLeg, model.rightPants);
+                    parts.put(model.leftArm, model.leftSleeve);
+                    parts.put(model.rightArm, model.rightSleeve);
                 }
 
                 mutations.getMutations().forEach(mutation -> {
@@ -116,8 +126,17 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
                             roll = MathHelper.lerp(delta, roll, roll + random.nextFloat() * 0.2f);
                         }
                     }
+
                     modelPart.setAngles(modelYaw * 360f * ((float) Math.PI / 180f), modelPitch * 360f * ((float) Math.PI / 180f), roll * 360f * ((float) Math.PI / 180f));
                     modelPart.render(matrixStack, vertexConsumer, light, overlay, color);
+
+                    if (parts.containsKey(modelPart)) {
+                        ModelPart part = parts.get(modelPart);
+                        ModelTransform transform = part.getTransform();
+                        part.copyTransform(modelPart);
+                        part.render(matrixStack, vertexConsumer, light, overlay, color);
+                        part.setTransform(transform);
+                    }
 
                     modelPart.setTransform(modelTransform);
                     matrixStack.pop();

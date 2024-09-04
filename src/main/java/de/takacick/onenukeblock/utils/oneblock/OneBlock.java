@@ -1,6 +1,8 @@
 package de.takacick.onenukeblock.utils.oneblock;
 
+import de.takacick.onenukeblock.OneNukeBlock;
 import de.takacick.onenukeblock.registry.ItemRegistry;
+import de.takacick.utils.common.event.EventHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
@@ -152,6 +154,7 @@ public class OneBlock {
         }
 
         setDirty(true);
+        EventHandler.sendWorldStatus(world, blockPos.toCenterPos(), OneNukeBlock.IDENTIFIER, 3, 0);
     }
 
     public ItemStack getRandomDrop() {

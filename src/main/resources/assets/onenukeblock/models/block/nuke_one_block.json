@@ -1,7 +1,7 @@
 {
   "parent": "builtin/entity",
   "textures": {
-    "particle": "onenukeblock:block/one_nuke_block"
+    "particle": "onenukeblock:block/nuke_one_block"
   },
   "display": {
     "thirdperson_righthand": {

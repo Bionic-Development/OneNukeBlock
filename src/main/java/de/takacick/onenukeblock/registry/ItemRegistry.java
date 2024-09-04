@@ -44,8 +44,8 @@ public class ItemRegistry {
         Registry.register(Registries.FLUID, Identifier.of(OneNukeBlock.MOD_ID, "still_nuclear_water"), STILL_NUCLEAR_WATER);
         Registry.register(Registries.FLUID, Identifier.of(OneNukeBlock.MOD_ID, "flowing_nuclear_water"), FLOWING_NUCLEAR_WATER);
 
-        Registry.register(Registries.BLOCK, Identifier.of(OneNukeBlock.MOD_ID, "one_nuke_block"), ONE_NUKE_BLOCK);
-        Registry.register(Registries.ITEM, Identifier.of(OneNukeBlock.MOD_ID, "one_nuke_block"), ONE_NUKE_BLOCK_ITEM);
+        Registry.register(Registries.BLOCK, Identifier.of(OneNukeBlock.MOD_ID, "nuke_one_block"), ONE_NUKE_BLOCK);
+        Registry.register(Registries.ITEM, Identifier.of(OneNukeBlock.MOD_ID, "nuke_one_block"), ONE_NUKE_BLOCK_ITEM);
         Registry.register(Registries.ITEM, Identifier.of(OneNukeBlock.MOD_ID, "kaboom_miner"), KABOOM_MINER);
         Registry.register(Registries.BLOCK, Identifier.of(OneNukeBlock.MOD_ID, "skyland_tnt"), SKYLAND_TNT);
         Registry.register(Registries.ITEM, Identifier.of(OneNukeBlock.MOD_ID, "skyland_tnt"), SKYLAND_TNT_ITEM);
