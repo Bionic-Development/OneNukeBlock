@@ -69,12 +69,12 @@ public class AnimationBodyModel<T extends LivingEntity>
 
         ModelPartData right_arm = bone.addChild("right_arm", ModelPartBuilder.create().uv(40, 16).cuboid(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F))
                 .uv(40, 32).cuboid(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(-5.0F, 2.0F, 0.0F));
-        ModelPartData right_item = right_arm.addChild("right_item", ModelPartBuilder.create(), ModelTransform.pivot(slim ? 0f : -1.0F, 10.0F, 0.0F));
+        ModelPartData right_item = right_arm.addChild("right_item", ModelPartBuilder.create(), ModelTransform.pivot(-1.0F, 10.0F, 0.0F));
 
         ModelPartData left_arm = bone.addChild("left_arm", ModelPartBuilder.create().uv(32, 48).cuboid(-1.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, new Dilation(0.0F))
                 .uv(48, 48).cuboid(-1.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(5.0F, 2.0F, 0.0F));
 
-        ModelPartData left_item = left_arm.addChild("left_item", ModelPartBuilder.create(), ModelTransform.pivot(slim ? 0f : 1.0F, 10.0F, 0.0F));
+        ModelPartData left_item = left_arm.addChild("left_item", ModelPartBuilder.create(), ModelTransform.pivot(-1.0f, 10.0F, 0.0F));
 
         ModelPartData right_leg = bone.addChild("right_leg", ModelPartBuilder.create().uv(0, 16).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F))
                 .uv(0, 32).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.25F)), ModelTransform.pivot(-1.9F, 10.0F, 0.0F));
